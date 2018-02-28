@@ -152,7 +152,7 @@
             app:layout_constraintBottom_toTopOf="@+id/username"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_car_24dp" />
+            app:srcCompat="@drawable/logo_pintumagang" />
 
         <TextView
             android:id="@+id/link_sign_up"
