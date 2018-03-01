@@ -5,4 +5,5 @@
     <color name="colorAccent">#86c8ce</color>
 
     <color name="colorDrawableIconLogin" type="color">#86c8ce</color>
+    <color name="colorTulisan">#1da1f2</color>
 </resources>
