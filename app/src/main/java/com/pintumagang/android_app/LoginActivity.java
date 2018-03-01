@@ -60,7 +60,10 @@ public class LoginActivity extends AppCompatActivity {
                 intent = new Intent(this, RegisterActivity.class);
                 finish();
                 break;
+            case R.id.link_forgotpassword:
+                intent = new Intent(this, ForgotpasswordActivity.class);
 
+                break;
 
 
 
