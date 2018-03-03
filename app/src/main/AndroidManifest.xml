@@ -18,7 +18,9 @@
             android:theme="@style/AppTheme.LoginStyle"></activity>
         <activity
             android:name=".SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.LoginStyle">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,10 +29,13 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.LoginStyle"></activity>
+            android:theme="@style/AppTheme.LoginStyle"
+            android:screenOrientation="portrait"
+            ></activity>
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/AppTheme.LoginStyle" />
+            android:theme="@style/AppTheme.LoginStyle"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ForgotpasswordActivity"
             android:label="Forgot Password"
