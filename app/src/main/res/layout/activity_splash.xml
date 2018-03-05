@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout4"
@@ -14,7 +14,9 @@
         style="@style/Widget.AppCompat.ProgressBar"
         android:layout_width="29dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="107dp"
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="83dp"
         android:indeterminateTint="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,8 +28,8 @@
         android:id="@+id/textView"
         android:layout_width="129dp"
         android:layout_height="21dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_above="@+id/textView4"
+        android:layout_centerHorizontal="true"
         android:text="Version 0.0.1 (Beta)"
         android:textColor="@android:color/white"
         android:textStyle="bold"
@@ -39,7 +41,9 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp"
         android:text="www.pintumagang.com"
         android:textColor="@android:color/white"
         android:textStyle="normal"
@@ -52,8 +56,9 @@
         android:id="@+id/imageView"
         android:layout_width="87dp"
         android:layout_height="110dp"
-        android:layout_marginBottom="70dp"
-        android:layout_marginTop="116dp"
+        android:layout_above="@+id/progressBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="53dp"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -62,4 +67,4 @@
         app:srcCompat="@drawable/pintumagang" />
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
