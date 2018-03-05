@@ -3,10 +3,14 @@ package com.pintumagang.android_app.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.pintumagang.android_app.R;
 
@@ -28,6 +32,7 @@ public class HomeFragment extends Fragment {
 
     private SliderView sliderView;
     private LinearLayout mLinearLayout;
+    private RelativeLayout prodi_if;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -40,11 +45,41 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         sliderView = (SliderView) rootView.findViewById(R.id.sliderView);
         mLinearLayout = (LinearLayout) rootView.findViewById(R.id.pagesContainer);
+
+        prodi_if = (RelativeLayout) rootView.findViewById(R.id.prodi_if);
+
+        prodi_if.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                LowonganFragment lf = new LowonganFragment();
+               // Toast.makeText(getActivity(), "Klik me",Toast.LENGTH_SHORT).show();
+                android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.content, lf);
+                ft.addToBackStack("list");
+                ft.commit();
+            }
+
+        });
+
+
+
         setupSlider();
         // Inflate the layout for this fragment
         return rootView;
     }
 
+   /* public View onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.prodi_if:
+                NotifikasiFragment notifikasiFragment = new NotifikasiFragment();
+                android.support.v4.app.FragmentTransaction fragmentNotificationsTransaction = getChildFragmentManager().beginTransaction();
+                fragmentNotificationsTransaction.replace(R.id.content, notifikasiFragment);
+                fragmentNotificationsTransaction.commit();
+                break;
+        }
+     }
+*/
     private void setupSlider() {
         sliderView.setDurationScroll(800);
         List<Fragment> fragments = new ArrayList<>();

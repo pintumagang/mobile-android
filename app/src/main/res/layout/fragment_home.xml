@@ -73,6 +73,8 @@
                         android:layout_marginRight="5dp">
 
                         <RelativeLayout
+                            android:id="@+id/prodi_if"
+                            android:onClick="onClick"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="20dp">
