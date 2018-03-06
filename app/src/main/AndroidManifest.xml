@@ -15,6 +15,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.LoginStyle"></activity>
         <activity
             android:name=".SplashActivity"
@@ -39,6 +40,7 @@
         <activity
             android:name=".ForgotpasswordActivity"
             android:label="Forgot Password"
+            android:screenOrientation="portrait"
             android:parentActivityName="com.pintumagang.android_app.LoginActivity" >
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data

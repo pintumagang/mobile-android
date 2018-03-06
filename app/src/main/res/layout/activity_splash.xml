@@ -8,7 +8,6 @@
     android:background="@drawable/login_background"
     tools:layout_editor_absoluteY="81dp">
 
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar"
