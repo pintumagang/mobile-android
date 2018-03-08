@@ -3,7 +3,7 @@
     package="com.pintumagang.android_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -15,12 +15,11 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.LoginStyle"></activity>
+            android:theme="@style/AppTheme.LoginStyle" />
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.LoginStyle">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,17 +28,17 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.LoginStyle"
             android:screenOrientation="portrait"
-            ></activity>
+            android:theme="@style/AppTheme.LoginStyle" />
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/AppTheme.LoginStyle"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.LoginStyle" />
         <activity
             android:name=".ForgotpasswordActivity"
             android:label="Forgot Password"
-            android:parentActivityName="com.pintumagang.android_app.LoginActivity" >
+            android:parentActivityName=".LoginActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

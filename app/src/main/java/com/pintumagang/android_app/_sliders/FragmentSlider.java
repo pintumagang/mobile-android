@@ -1,6 +1,7 @@
 package com.pintumagang.android_app._sliders;
 
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.pintumagang.android_app.R;
 
 /**
@@ -41,8 +41,7 @@ public class FragmentSlider extends Fragment {
         ImageView img = (ImageView) view.findViewById(R.id.img);
         Glide.with(getActivity())
                 .load(imageUrls)
-                .apply(new RequestOptions()
-                        .placeholder(R.drawable.image_slider_1))
+                .placeholder(R.drawable.image_slider_1)
                 .into(img);
         return view;
     }

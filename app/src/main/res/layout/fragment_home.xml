@@ -84,8 +84,22 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_marginRight="5dp"
-                                android:background="@drawable/bg_home_circle"
-                                app:srcCompat="@drawable/ic_if_white_24dp" />
+                                android:background="@color/colorTulisan"
+                                />
+                            <TextView
+                                android:id="@+id/textif"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/imageview"
+                                android:layout_alignTop="@+id/imageview"
+                                android:layout_alignRight="@+id/imageview"
+                                android:layout_alignBottom="@+id/imageview"
+                                android:layout_margin="1dp"
+                                android:gravity="center"
+                                android:text="IF"
+                                android:textSize="24dp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFF" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -111,9 +125,23 @@
                                 android:id="@+id/imageview2"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
+                                android:background="@android:color/holo_orange_dark"
                                 android:layout_marginRight="5dp"
-                                android:background="@drawable/bg_home_circle"
-                                app:srcCompat="@drawable/ic_if_white_24dp" />
+                                 />
+                            <TextView
+                                android:id="@+id/ImageViewtg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/imageview2"
+                                android:layout_alignTop="@+id/imageview2"
+                                android:layout_alignRight="@+id/imageview2"
+                                android:layout_alignBottom="@+id/imageview2"
+                                android:layout_margin="1dp"
+                                android:gravity="center"
+                                android:text="TG"
+                                android:textSize="24dp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFF" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -140,8 +168,23 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_marginRight="5dp"
-                                android:background="@drawable/bg_home_circle"
-                                app:srcCompat="@drawable/ic_if_white_24dp" />
+                                android:background="@android:color/holo_blue_dark"
+                                 />
+
+                            <TextView
+                                android:id="@+id/ImageViewpwk"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/imageview3"
+                                android:layout_alignTop="@+id/imageview3"
+                                android:layout_alignRight="@+id/imageview3"
+                                android:layout_alignBottom="@+id/imageview3"
+                                android:layout_margin="1dp"
+                                android:gravity="center"
+                                android:text="PL"
+                                android:textSize="24dp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFF" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -168,8 +211,22 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_marginRight="5dp"
-                                android:background="@drawable/bg_home_circle"
-                                app:srcCompat="@drawable/ic_if_white_24dp" />
+                                android:background="@android:color/holo_green_dark"
+                                 />
+                            <TextView
+                                android:id="@+id/ImageViewfi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/imageview4"
+                                android:layout_alignTop="@+id/imageview4"
+                                android:layout_alignRight="@+id/imageview4"
+                                android:layout_alignBottom="@+id/imageview4"
+                                android:layout_margin="1dp"
+                                android:gravity="center"
+                                android:text="FI"
+                                android:textSize="24dp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFF" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -196,8 +253,7 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_marginRight="5dp"
-                                android:background="@drawable/bg_home_circle"
-                                app:srcCompat="@drawable/ic_if_white_24dp" />
+                                 />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -229,10 +285,26 @@
                             <ImageView
                                 android:id="@+id/imageview1"
                                 android:layout_width="50dp"
+
                                 android:layout_height="50dp"
+                                android:background="@android:color/holo_green_light"
                                 android:layout_marginRight="5dp"
-                                android:background="@drawable/bg_home_circle_yellow"
-                                app:srcCompat="@drawable/ic_el_white_24dp" />
+                                 />
+
+                            <TextView
+                                android:id="@+id/myImageViewText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/imageview1"
+                                android:layout_alignTop="@+id/imageview1"
+                                android:layout_alignRight="@+id/imageview1"
+                                android:layout_alignBottom="@+id/imageview1"
+                                android:layout_margin="1dp"
+                                android:gravity="center"
+                                android:text="EL"
+                                android:textSize="24dp"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/holo_orange_light" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -260,8 +332,22 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_marginRight="5dp"
-                                android:background="@drawable/bg_home_circle_yellow"
-                                app:srcCompat="@drawable/ic_el_white_24dp" />
+                                android:background="@android:color/holo_red_light"
+                                 />
+                            <TextView
+                                android:id="@+id/textsi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/imageview21"
+                                android:layout_alignTop="@+id/imageview21"
+                                android:layout_alignRight="@+id/imageview21"
+                                android:layout_alignBottom="@+id/imageview21"
+                                android:layout_margin="1dp"
+                                android:gravity="center"
+                                android:text="SI"
+                                android:textSize="24dp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFF" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -289,8 +375,23 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_marginRight="5dp"
-                                android:background="@drawable/bg_home_circle_yellow"
-                                app:srcCompat="@drawable/ic_el_white_24dp" />
+                                android:background="@android:color/darker_gray"
+                                 />
+
+                            <TextView
+                                android:id="@+id/ImageViewgt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/imageview22"
+                                android:layout_alignTop="@+id/imageview22"
+                                android:layout_alignRight="@+id/imageview22"
+                                android:layout_alignBottom="@+id/imageview22"
+                                android:layout_margin="1dp"
+                                android:gravity="center"
+                                android:text="GT"
+                                android:textSize="24dp"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/holo_orange_light" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -318,8 +419,7 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_marginRight="5dp"
-                                android:background="@drawable/bg_home_circle_yellow"
-                                app:srcCompat="@drawable/ic_el_white_24dp" />
+                                 />
 
                             <TextView
                                 android:layout_width="wrap_content"

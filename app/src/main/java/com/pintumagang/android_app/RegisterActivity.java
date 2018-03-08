@@ -17,9 +17,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void click_link(View view){
         Intent intent = null;
         switch (view.getId()){
-            case R.id.link_instagram:
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/ari.bambang"));
-                break;
+
             case R.id.link_sign_in:
                 intent = new Intent(this, LoginActivity.class);
                 finish();

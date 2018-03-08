@@ -12,12 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.pintumagang.android_app.R;
+import com.pintumagang.android_app.*;
 
-import com.pintumagang.android_app._sliders.FragmentSlider;
-import com.pintumagang.android_app._sliders.SliderIndicator;
-import com.pintumagang.android_app._sliders.SliderPagerAdapter;
-import com.pintumagang.android_app._sliders.SliderView;
+import com.pintumagang.android_app._sliders.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +84,7 @@ public class HomeFragment extends Fragment {
         fragments.add(FragmentSlider.newInstance("http://www.menucool.com/slider/prod/image-slider-2.jpg"));
         fragments.add(FragmentSlider.newInstance("http://www.menucool.com/slider/prod/image-slider-3.jpg"));
         fragments.add(FragmentSlider.newInstance("http://www.menucool.com/slider/prod/image-slider-4.jpg"));
+
 
         mAdapter = new SliderPagerAdapter(getFragmentManager(), fragments);
         sliderView.setAdapter(mAdapter);

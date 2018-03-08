@@ -1,136 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background">
+    android:background="@color/colorTulisan">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="79dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="76dp"
+
+        android:layout_marginTop="50dp"
         android:text="Register"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+         />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
+        android:id="@+id/firstName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="138dp"
-        android:background="#48787c"
-        android:hint="Full Name"
+        android:background="@android:color/white"
+        android:layout_marginTop="10dp"
+        android:hint="Nama Depan"
         android:padding="12dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="#86C8CE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/colorTulisan"
+         />
+        <EditText
+            android:id="@+id/lastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:layout_marginTop="4dp"
+            android:hint="Nama Belakang"
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/colorTulisan"
+             />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="0dp"
+        android:id="@+id/username"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="#48787c"
+        android:background="@android:color/white"
         android:hint="Username"
+        android:layout_marginTop="4dp"
         android:padding="12dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="#86C8CE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/colorTulisan"/>
 
     <EditText
         android:id="@+id/editText3"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="#48787c"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/white"
         android:hint="Email"
         android:padding="12dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="#86C8CE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/colorTulisan"/>
 
     <EditText
         android:id="@+id/editText4"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="7dp"
-        android:background="#48787c"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/white"
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="12dp"
         android:textColor="@android:color/white"
-        android:textColorHint="#8FB6BA"
+        android:textColorHint="@color/colorTulisan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="79dp"
+
+        android:layout_marginTop="10dp"
         android:background="@android:color/white"
         android:text="Sign Up"
-        android:textColor="@color/colorDrawableIconLogin"
+        android:textColor="@color/colorTulisan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/editText4" />
 
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Do you have an account? "
 
-        android:textColor="@android:color/white"
-        app:layout_constraintBaseline_toBaselineOf="@+id/link_sign_in"
-        app:layout_constraintEnd_toStartOf="@+id/link_sign_in"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sudah mempunyai akun? "
 
-    <TextView
-        android:id="@+id/link_sign_in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:clickable="true"
-        android:onClick="click_link"
-        android:text="Sign In"
-        android:textColor="@android:color/white"
+            android:textColor="@android:color/white"
+             />
 
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3" />
+        <TextView
+            android:id="@+id/link_sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="click_link"
+            android:text="Masuk"
+            android:textColor="@android:color/white"
 
+            android:textStyle="bold"
+             />
 
-</android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+</RelativeLayout>

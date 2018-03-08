@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                     // Menampilkan Error Login User salah akun atau password
-                    AlertDialog.Builder SalahAkun  = new AlertDialog.Builder(LoginActivity.this);
+                    /*AlertDialog.Builder SalahAkun  = new AlertDialog.Builder(LoginActivity.this);
 
                     SalahAkun.setMessage("Akun atau password anda salah, silakan coba lagi");
                     SalahAkun.setTitle("Gagal login");
@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
 
                                 }
-                            });
+                            });*/
 
                 }
             }
@@ -82,9 +82,6 @@ public class LoginActivity extends AppCompatActivity {
     public void click_link(View view){
         Intent intent = null;
         switch (view.getId()){
-            case R.id.link_instagram:
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/ari.bambang"));
-                break;
             case R.id.link_sign_up:
                 intent = new Intent(this, RegisterActivity.class);
                 finish();
