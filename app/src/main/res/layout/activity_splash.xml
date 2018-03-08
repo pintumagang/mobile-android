@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorTulisan">
 
-<<<<<<< HEAD
 
     <ImageView
         android:id="@+id/imageView"
@@ -21,8 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_pintumagang" />
 
-=======
->>>>>>> master
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar"
