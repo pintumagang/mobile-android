@@ -6,7 +6,8 @@
     android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorTulisan">
+    android:background="@color/colorTulisan"
+    tools:context=".RegisterActivity">
 
 
     <LinearLayout
@@ -15,12 +16,12 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-    <TextView
+        <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="1dp"
         android:text="Register"
         android:textColor="@android:color/white"
         android:textSize="24sp"
@@ -61,19 +62,20 @@
         android:textColor="@android:color/black"
         android:textColorHint="@color/colorTulisan"/>
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@android:color/white"
-        android:hint="Email"
-        android:padding="12dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@color/colorTulisan"/>
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/white"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/colorTulisan" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -81,7 +83,7 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="12dp"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textColorHint="@color/colorTulisan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

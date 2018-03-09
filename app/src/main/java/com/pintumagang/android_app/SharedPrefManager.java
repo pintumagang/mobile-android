@@ -4,6 +4,8 @@ package com.pintumagang.android_app;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+
+import com.pintumagang.android_app.entity.Mahasiswa;
 import com.pintumagang.android_app.entity.User;
 
 /**
@@ -17,6 +19,12 @@ public class SharedPrefManager {
     private static final String KEY_EMAIL = "keyemail";
     private static final String KEY_GENDER = "keygender";
     private static final String KEY_ID = "keyid";
+    private static final String KEY_ID_MAHASISWA = "keyidmahasiswa";
+    private static final String KEY_NAMA_DEPAN ="keynamadepan";
+    private static final String KEY_NAMA_BELAKANG ="keynamabelakang";
+    private static final String KEY_PERGURUAN_TINGGI = "keyperguruantinggi";
+    private static final String KEY_HP = "keyhp";
+    private static final String KEY_CV = "keycv";
 
     private static SharedPrefManager mInstance;
     private static Context mCtx;
@@ -40,7 +48,19 @@ public class SharedPrefManager {
         editor.putInt(KEY_ID, user.getId());
         editor.putString(KEY_USERNAME, user.getUsername());
         editor.putString(KEY_EMAIL, user.getEmail());
-        editor.putString(KEY_GENDER, user.getGender());
+        editor.apply();
+    }
+
+    public void mahasiswaLogin(Mahasiswa mahasiswa) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(KEY_ID, mahasiswa.getId_user());
+        editor.putInt(KEY_ID_MAHASISWA, mahasiswa.getId());
+        editor.putString(KEY_NAMA_DEPAN, mahasiswa.getNamaDepan());
+        editor.putString(KEY_NAMA_BELAKANG, mahasiswa.getNamaBelakang());
+        editor.putString(KEY_PERGURUAN_TINGGI, mahasiswa.getPerguruan_tinggi());
+        editor.putString(KEY_HP,mahasiswa.getHp());
+        editor.putString(KEY_CV,mahasiswa.getCv());
         editor.apply();
     }
 
@@ -56,8 +76,20 @@ public class SharedPrefManager {
         return new User(
                 sharedPreferences.getInt(KEY_ID, -1),
                 sharedPreferences.getString(KEY_USERNAME, null),
-                sharedPreferences.getString(KEY_EMAIL, null),
-                sharedPreferences.getString(KEY_GENDER, null)
+                sharedPreferences.getString(KEY_EMAIL, null)
+        );
+    }
+
+    public Mahasiswa getMahasiswa() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return new Mahasiswa(
+                sharedPreferences.getInt(KEY_ID, -1),
+                sharedPreferences.getInt(KEY_ID_MAHASISWA, -1),
+                sharedPreferences.getString(KEY_NAMA_DEPAN, null),
+                sharedPreferences.getString(KEY_NAMA_BELAKANG, null),
+                sharedPreferences.getString(KEY_PERGURUAN_TINGGI,null),
+                sharedPreferences.getString(KEY_HP,null),
+                sharedPreferences.getString(KEY_CV,null)
         );
     }
 

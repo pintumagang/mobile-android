@@ -21,6 +21,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.pintumagang.android_app.entity.Mahasiswa;
 import com.pintumagang.android_app.entity.User;
 import java.util.HashMap;
 import java.util.Map;
@@ -91,17 +92,28 @@ public class LoginActivity extends AppCompatActivity {
 
                                 //getting the user from the response
                                 JSONObject userJson = obj.getJSONObject("user");
+                                JSONObject mahasiswaJson = obj.getJSONObject("mahasiswa");
 
                                 //creating a new user object
                                 User user = new User(
                                         userJson.getInt("id"),
                                         userJson.getString("username"),
-                                        userJson.getString("email"),
-                                        userJson.getString("gender")
+                                        userJson.getString("email")
+                                );
+
+                                Mahasiswa mahasiswa= new Mahasiswa(
+                                        mahasiswaJson.getInt("id"),
+                                        mahasiswaJson.getInt("id_user"),
+                                        mahasiswaJson.getString("namaDepan"),
+                                        mahasiswaJson.getString("namaBelakang"),
+                                        mahasiswaJson.getString("perguruan_tinggi"),
+                                        mahasiswaJson.getString("hp"),
+                                        mahasiswaJson.getString("cv")
                                 );
 
                                 //storing the user in shared preferences
                                 SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+                                SharedPrefManager.getInstance(getApplicationContext()).mahasiswaLogin(mahasiswa);
 
                                 //starting the profile activity
                                 finish();
@@ -137,7 +149,7 @@ public class LoginActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.link_sign_up:
                 intent = new Intent(this, RegisterActivity.class);
-                finish();
+
                 break;
             case R.id.link_forgotpassword:
                 intent = new Intent(this, ForgotpasswordActivity.class);

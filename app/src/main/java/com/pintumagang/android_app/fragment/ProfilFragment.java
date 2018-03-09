@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.pintumagang.android_app.*;
+import com.pintumagang.android_app.entity.Mahasiswa;
 import com.pintumagang.android_app.entity.User;
 
 import com.pintumagang.android_app.R;
@@ -40,17 +41,16 @@ public class ProfilFragment extends Fragment {
         textViewId = (TextView)view.findViewById(R.id.textViewId);
         textViewUsername = (TextView)view.findViewById(R.id.textViewUsername);
         textViewEmail = (TextView)view.findViewById(R.id.textViewEmail);
-        textViewGender = (TextView)view.findViewById(R.id.textViewGender);
 
 
         //getting the current user
         User user = SharedPrefManager.getInstance(getActivity()).getUser();
+        Mahasiswa mahasiswa = SharedPrefManager.getInstance(getActivity()).getMahasiswa();
 
         //setting the values to the textviews
         textViewId.setText(String.valueOf(user.getId()));
         textViewUsername.setText(user.getUsername());
         textViewEmail.setText(user.getEmail());
-        textViewGender.setText(user.getGender());
 
         //when the user presses logout button
         //calling the logout method
