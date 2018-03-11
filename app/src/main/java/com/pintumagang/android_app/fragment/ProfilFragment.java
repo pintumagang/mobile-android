@@ -20,7 +20,7 @@ import com.pintumagang.android_app.R;
  */
 public class ProfilFragment extends Fragment {
 
-    TextView textViewId, textViewUsername, textViewEmail, textViewGender;
+    TextView textViewId, textViewUsername, textViewEmail, textViewNamaDepan;
     //rofilFragment context = this;
     public ProfilFragment() {
         // Required empty public constructor
@@ -41,6 +41,7 @@ public class ProfilFragment extends Fragment {
         textViewId = (TextView)view.findViewById(R.id.textViewId);
         textViewUsername = (TextView)view.findViewById(R.id.textViewUsername);
         textViewEmail = (TextView)view.findViewById(R.id.textViewEmail);
+        textViewNamaDepan = (TextView)view.findViewById(R.id.textViewNamaDepan);
 
 
         //getting the current user
@@ -51,6 +52,7 @@ public class ProfilFragment extends Fragment {
         textViewId.setText(String.valueOf(user.getId()));
         textViewUsername.setText(user.getUsername());
         textViewEmail.setText(user.getEmail());
+        textViewNamaDepan.setText(mahasiswa.getNamaDepan());
 
         //when the user presses logout button
         //calling the logout method

@@ -73,24 +73,24 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     private void registerUser() {
+        final String nama_depan = editTextNamaDepan.getText().toString().trim();
+        final String nama_belakang = editTextNamaBelakang.getText().toString().trim();
         final String username = editTextUsername.getText().toString().trim();
-        final String email = editTextEmail.getText().toString().trim();
+        final String email_user = editTextEmail.getText().toString().trim();
         final String password = editTextPassword.getText().toString().trim();
-        final String namaDepan = editTextNamaDepan.getText().toString().trim();
-        final String namaBelakang = editTextNamaBelakang.getText().toString().trim();
 
         //final String gender = ((RadioButton) findViewById(radioGroupGender.getCheckedRadioButtonId())).getText().toString();
 
         //first we will do the validations
 
 
-        if (TextUtils.isEmpty(namaDepan)) {
+        if (TextUtils.isEmpty(nama_depan)) {
             editTextNamaDepan.setError("Masukkan nama depan");
             editTextNamaDepan.requestFocus();
             return;
         }
 
-        if (TextUtils.isEmpty(namaBelakang)) {
+        if (TextUtils.isEmpty(nama_belakang)) {
             editTextNamaBelakang.setError("Masukkan nama belakang");
             editTextNamaBelakang.requestFocus();
             return;
@@ -102,15 +102,13 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-
-
-        if (TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(email_user)) {
             editTextEmail.setError("Masukkan email anda");
             editTextEmail.requestFocus();
             return;
         }
 
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email_user).matches()) {
             editTextEmail.setError("Email tidak valid");
             editTextEmail.requestFocus();
             return;
@@ -142,19 +140,19 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 //creating a new user object
                                 User user = new User(
-                                        userJson.getInt("id"),
+                                        userJson.getInt("id_user"),
                                         userJson.getString("username"),
-                                        userJson.getString("email")
+                                        userJson.getString("email_user")
                                 );
 
                                 Mahasiswa mahasiswa= new Mahasiswa(
-                                        mahasiswaJson.getInt("id"),
+                                        mahasiswaJson.getInt("id_mhs"),
                                         mahasiswaJson.getInt("id_user"),
-                                        mahasiswaJson.getString("namaDepan"),
-                                        mahasiswaJson.getString("namaBelakang"),
-                                        mahasiswaJson.getString("perguruan_tinggi"),
-                                        mahasiswaJson.getString("hp"),
-                                        mahasiswaJson.getString("cv")
+                                        mahasiswaJson.getString("nama_depan"),
+                                        mahasiswaJson.getString("nama_belakang")
+                                        //mahasiswaJson.getString("perguruan_tinggi"),
+                                        //mahasiswaJson.getString("hp"),
+                                        //mahasiswaJson.getString("cv")
                                 );
 
                                 //storing the user in shared preferences
@@ -181,10 +179,13 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
+
+                params.put("nama_depan",  nama_depan);
+                params.put("nama_belakang", nama_belakang);
                 params.put("username", username);
-                params.put("email", email);
+                params.put("email_user", email_user);
                 params.put("password", password);
-            //    params.put("gender", gender);
+
                 return params;
             }
         };

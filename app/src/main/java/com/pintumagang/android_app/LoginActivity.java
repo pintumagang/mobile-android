@@ -93,27 +93,28 @@ public class LoginActivity extends AppCompatActivity {
                                 //getting the user from the response
                                 JSONObject userJson = obj.getJSONObject("user");
                                 JSONObject mahasiswaJson = obj.getJSONObject("mahasiswa");
-
+                               /// Toast.makeText(getApplicationContext(),Integer.valueOf(userJson.getInt("id_user")),Toast.LENGTH_SHORT).show();
                                 //creating a new user object
                                 User user = new User(
-                                        userJson.getInt("id"),
+                                        userJson.getInt("id_user"),
                                         userJson.getString("username"),
                                         userJson.getString("email")
+
                                 );
 
                                 Mahasiswa mahasiswa= new Mahasiswa(
-                                        mahasiswaJson.getInt("id"),
+                                        mahasiswaJson.getInt("id_mhs"),
                                         mahasiswaJson.getInt("id_user"),
                                         mahasiswaJson.getString("namaDepan"),
-                                        mahasiswaJson.getString("namaBelakang"),
-                                        mahasiswaJson.getString("perguruan_tinggi"),
-                                        mahasiswaJson.getString("hp"),
-                                        mahasiswaJson.getString("cv")
+                                        mahasiswaJson.getString("namaBelakang")
+                                   //     mahasiswaJson.getString("perguruan_tinggi"),
+                                   //     mahasiswaJson.getString("hp"),
+                                   //     mahasiswaJson.getString("cv")
                                 );
 
                                 //storing the user in shared preferences
-                                SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
                                 SharedPrefManager.getInstance(getApplicationContext()).mahasiswaLogin(mahasiswa);
+                                SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
 
                                 //starting the profile activity
                                 finish();

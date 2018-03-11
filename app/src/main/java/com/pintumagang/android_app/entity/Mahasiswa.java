@@ -8,7 +8,7 @@ public class Mahasiswa {
     private int id,id_user;
     private String namaDepan, namaBelakang, perguruan_tinggi,hp,cv;
 
-    public Mahasiswa(int id,int id_user, String namaDepan, String namaBelakang,String perguruan_tinggi,String hp,String cv) {
+    public Mahasiswa(int id,int id_user, String namaDepan, String namaBelakang) {
         this.id = id;
         this.id_user = id_user;
         this.namaDepan = namaDepan;
@@ -38,7 +38,7 @@ public class Mahasiswa {
         return namaBelakang;
     }
 
-    public String getPerguruan_tinggi() {
+    /*public String getPerguruan_tinggi() {
 
         return perguruan_tinggi;
     }
@@ -48,7 +48,7 @@ public class Mahasiswa {
     }
     public String getCv() {
 
-        return cv;
-    }
+        return cv;*/
+
 
 }
