@@ -1,21 +1,32 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pintumagang.android_app.fragment.LowonganFragment">
+    android:layout_marginBottom="50dp"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/editTextFilter"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:drawableLeft="@drawable/ic_search_black_24dp"
+        android:drawablePadding="10dp"
+        android:drawableTint="@android:color/darker_gray"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+
+
+        android:hint="Filter Lowongan" android:drawableStart="@drawable/ic_search_black_24dp"/>
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editTextFilter"
+        android:layout_marginTop="9dp" />
 
-    </android.support.v7.widget.RecyclerView>
-
-</FrameLayout>
+</RelativeLayout>
