@@ -1,14 +1,26 @@
 package com.pintumagang.android_app.fragment;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.widget.AdapterView;
+import android.widget.Filter;
+import android.widget.ImageView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.EditText;
+import android.widget.Filterable;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -23,17 +35,26 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bumptech.glide.Glide;
 import com.pintumagang.android_app.R;
 import com.pintumagang.android_app.entity.Lowongan;
-import com.pintumagang.android_app.entity.Mahasiswa;
-import com.pintumagang.android_app.LowonganAdapter;
 
 import com.pintumagang.android_app.URLs;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LowonganFragment extends Fragment {
+public class LowonganFragment extends Fragment{
+
+
+    private EditText editTextFilter;
+    private List<Lowongan> lowonganList;
+    private List<Lowongan> lowonganFilter;
+    private LowonganAdapter mAdapter;
+    private View rootView;
+    //the recyclerview
+    public RecyclerView recyclerView;
+
 
 
     public LowonganFragment() {
@@ -44,18 +65,44 @@ public class LowonganFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_lowongan, container, false);
+        rootView = inflater.inflate(R.layout.fragment_lowongan, container, false);
+
+        lowonganList = new ArrayList<Lowongan>();
+        lowonganList = loadLowongan();
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        EditText search_view = (EditText) rootView.findViewById(R.id.search_view);
+
+
+
+
+        //lowonganFilter.addAll(lowonganList);
+        mAdapter = new LowonganAdapter(getActivity(), lowonganList);
+        recyclerView.setAdapter(mAdapter);
+
+        search_view.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
 
         //initializing the productlist
-        lowonganList = new ArrayList<>();
 
-        //this method will fetch and parse json
-        //to display it in recyclerview
-        loadLowongan();
+
 
         // Inflate the layout for this fragment
 
@@ -64,14 +111,36 @@ public class LowonganFragment extends Fragment {
 
 
     //a list to store all the products
-    List<Lowongan> lowonganList;
-
-    //the recyclerview
-    RecyclerView recyclerView;
 
 
-    private void loadLowongan() {
+    private void filter(String text) {
+        //new array list that will hold the filtered data
+        ArrayList<Lowongan> filterdNames = new ArrayList<>();
 
+        //looping through existing elements
+        for (Lowongan namaLowongan : lowonganList ) {
+
+            //if the existing elements contains the search input
+            if (namaLowongan.getNama_lowongan().toLowerCase().contains(text.toLowerCase()) || namaLowongan.getNama_perusahaan().toLowerCase().contains(text.toLowerCase()) || namaLowongan.getLokasi().toLowerCase().contains(text.toLowerCase())) {
+                //adding the element to filtered list
+                //System.out.println("11"+namaLowongan.getNama_lowongan().toString());
+                filterdNames.add(namaLowongan);
+            }
+        }
+
+        //calling a method of the adapter class and passing the filtered list
+        mAdapter.filterList(filterdNames);
+    }
+
+
+    private List<Lowongan> loadLowongan() {
+        final List<Lowongan> listLowongan = new ArrayList<Lowongan>();
+
+        final ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar1);
+
+        //Displaying Progressbar
+        progressBar.setVisibility(View.VISIBLE);
+        getActivity().setProgressBarIndeterminate(true);
         /*
         * Creating a String Request
         * The request type is GET defined by first parameter
@@ -80,6 +149,7 @@ public class LowonganFragment extends Fragment {
         * In response listener we will get the JSON response as a String
         * */
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URLs.URL_LOWONGAN_LIST,
+
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -108,6 +178,7 @@ public class LowonganFragment extends Fragment {
                             //creating adapter object and setting it to recyclerview
                             LowonganAdapter adapter = new LowonganAdapter(getActivity(), lowonganList);
                             recyclerView.setAdapter(adapter);
+                            progressBar.setVisibility(rootView.GONE);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -117,11 +188,104 @@ public class LowonganFragment extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        progressBar.setVisibility(rootView.GONE);
+                        Toast.makeText(getContext(), "No More Items Available", Toast.LENGTH_SHORT).show();
                     }
                 });
 
         //adding our stringrequest to queue
         Volley.newRequestQueue(getActivity()).add(stringRequest);
+        return lowonganList;
+    }
+
+
+
+    public class LowonganAdapter extends RecyclerView.Adapter<LowonganAdapter.LowonganViewHolder> {
+
+        private Context mCtx;
+        private List<Lowongan> lowonganList = new ArrayList<>();
+        private List<Lowongan> lowonganFilter = new ArrayList<>();
+        //private CustomFilter mFilter;
+
+        public LowonganAdapter(Context mCtx, List<Lowongan> lowonganList) {
+            this.mCtx = mCtx;
+            this.lowonganList = lowonganList;
+            //lowonganFilter =lowonganList;
+          //  mFilter = new CustomFilter(LowonganAdapter.this);
+        }
+
+        @Override
+        public LowonganViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            LayoutInflater inflater = LayoutInflater.from(mCtx);
+            View view = inflater.inflate(R.layout.lowongan_list, null);
+            return new LowonganViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(LowonganViewHolder holder, final int position) {
+            final Lowongan lowongan = lowonganList.get(position);
+
+
+
+            //loading the image
+            Glide.with(mCtx)
+                    .load(lowongan.getLogo())
+                    .into(holder.imageView);
+
+            holder.textViewNamaLowongan.setText(lowongan.getNama_lowongan());
+            holder.textViewNamaPerusahaan.setText(lowongan.getNama_perusahaan());
+            holder.textViewLokasi.setText(String.valueOf(lowongan.getLokasi()));
+            holder.textViewWaktuInput.setText(String.valueOf(lowongan.getWaktu_input()));
+
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //Toast.makeText(mCtx, "you "+lowongan.getNama_lowongan(), Toast.LENGTH_LONG).show();
+                    Bundle bundle = new Bundle();
+                    //Lowongan lowonganklik = lowongan;
+                    bundle.putSerializable("lowonganValue", lowongan);
+                    LowongandetailFragment ldf = new LowongandetailFragment();
+                    ldf.setArguments(bundle);
+                    android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.replace(R.id.content, ldf);
+                    ft.addToBackStack("list");
+                    ft.commit();
+                }
+            });
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return lowonganList.size();
+        }
+
+        class LowonganViewHolder extends RecyclerView.ViewHolder {
+
+            public TextView textViewNamaLowongan, textViewNamaPerusahaan, textViewLokasi, textViewWaktuInput;
+            public ImageView imageView;
+            public CardView cardView;
+
+            public LowonganViewHolder(View itemView) {
+                super(itemView);
+
+                textViewNamaLowongan = (TextView) itemView.findViewById(R.id.textViewNamaLowongan);
+                textViewNamaPerusahaan = (TextView) itemView.findViewById(R.id.textViewNamaPerusahaan);
+                textViewLokasi = (TextView) itemView.findViewById(R.id.textViewLokasi);
+                textViewWaktuInput = (TextView) itemView.findViewById(R.id.textViewWaktuInput);
+                imageView = (ImageView) itemView.findViewById(R.id.imageView);
+                cardView = (CardView) itemView.findViewById(R.id.cardView);
+            }
+        }
+
+
+        public void filterList(ArrayList<Lowongan> filteredLowongan){
+
+            this.lowonganList = filteredLowongan;
+            mAdapter.notifyDataSetChanged();
+            recyclerView.setAdapter(mAdapter);
+        }
     }
 }
+
+

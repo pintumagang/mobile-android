@@ -1,13 +1,48 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.pintumagang.android_app.fragment.LowongandetailFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/logo_detail"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/nama_perusahaan_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="a"
+        app:layout_constraintTop_toBottomOf="@+id/logo_detail"
+        tools:layout_editor_absoluteX="176dp" />
+
+    <TextView
+        android:id="@+id/nama_lokasi_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="b"
+        app:layout_constraintTop_toBottomOf="@+id/nama_perusahaan_detail"
+        tools:layout_editor_absoluteX="176dp" />
+
+    <TextView
+        android:id="@+id/nama_lowongan_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="c"
+        app:layout_constraintTop_toBottomOf="@+id/nama_lokasi_detail"
+        tools:layout_editor_absoluteX="83dp" />
+
+</android.support.constraint.ConstraintLayout>

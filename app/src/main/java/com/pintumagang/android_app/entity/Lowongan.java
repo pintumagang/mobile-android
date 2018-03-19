@@ -1,10 +1,14 @@
 package com.pintumagang.android_app.entity;
 
+import android.os.Parcelable;
+
+import java.util.ArrayList;
+
 /**
  * Created by aribambang on 04/03/18.
  */
 
-public class Lowongan {
+public class Lowongan extends ArrayList<Parcelable> {
     private int id_lowongan;
     private String nama_lowongan;
     private int id_perusahaan;
