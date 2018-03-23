@@ -7,10 +7,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+import com.google.android.gms.ads.MobileAds;
+
 
 import com.pintumagang.android_app.fragment.*;
 
 public class MainActivity extends AppCompatActivity {
+
 
     private TextView mTextMessage;
 
