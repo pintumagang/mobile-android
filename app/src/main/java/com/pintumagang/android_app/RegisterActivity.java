@@ -1,11 +1,9 @@
 package com.pintumagang.android_app;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,12 +13,12 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.pintumagang.android_app.entity.Mahasiswa;
+import com.pintumagang.android_app.entity.User;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.pintumagang.android_app.entity.Mahasiswa;
-import com.pintumagang.android_app.entity.User;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
@@ -119,6 +117,8 @@ public class RegisterActivity extends AppCompatActivity {
             editTextPassword.requestFocus();
             return;
         }
+
+
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_REGISTER,
                 new Response.Listener<String>() {

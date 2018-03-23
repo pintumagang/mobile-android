@@ -20,6 +20,7 @@
         app:cardUseCompatPadding="true">
 
         <RelativeLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -27,6 +28,9 @@
                 android:id="@+id/linearLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:background="@color/colorPrimary"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -261,6 +265,7 @@
                 android:textColor="@color/white" />
 
             <Button
+                android:id="@+id/link_sign_in"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/button"
@@ -272,8 +277,7 @@
                 android:text="Sudah mempunyai akun? Masuk"
                 android:textAllCaps="false"
                 android:textColor="@color/textColor"
-                android:textSize="13sp"
-                android:id="@+id/link_sign_in" />
+                android:textSize="13sp" />
 
 
         </RelativeLayout>
