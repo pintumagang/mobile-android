@@ -36,6 +36,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.pintumagang.android_app.R;
 import com.pintumagang.android_app.entity.Lowongan;
 
@@ -52,13 +55,12 @@ public class LowonganFragment extends Fragment{
     private List<Lowongan> lowonganFilter;
     private LowonganAdapter mAdapter;
     private View rootView;
-    //the recyclerview
+    private AdView mAdView;
     public RecyclerView recyclerView;
 
 
 
     public LowonganFragment() {
-        // Required empty public constructor
     }
 
 
@@ -66,6 +68,14 @@ public class LowonganFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_lowongan, container, false);
+
+
+
+        MobileAds.initialize(getActivity(), "ca-app-pub-3679403662348605/5386502676");
+        mAdView = (AdView) rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
         lowonganList = new ArrayList<Lowongan>();
         lowonganList = loadLowongan();
