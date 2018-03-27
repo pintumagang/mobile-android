@@ -1,29 +1,48 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="50dp"
     tools:context="com.pintumagang.android_app.fragment.LowongandetailFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:id="@+id/logo_detail"
+<<<<<<< Updated upstream
         android:layout_width="163dp"
         android:layout_height="66dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+=======
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp"
+>>>>>>> Stashed changes
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+<<<<<<< Updated upstream
         android:id="@+id/deskripsi_perusahaan"
         android:layout_width="162dp"
         android:layout_height="0dp"
         android:layout_marginBottom="12dp"
         android:layout_marginTop="16dp"
+=======
+        android:id="@+id/nama_perusahaan_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginBottom="207dp"
+>>>>>>> Stashed changes
         android:text="a"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,11 +51,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+<<<<<<< Updated upstream
         android:id="@+id/lokasi_perusahaan"
         android:layout_width="163dp"
         android:layout_height="112dp"
         android:layout_marginBottom="13dp"
         android:layout_marginTop="87dp"
+=======
+        android:id="@+id/lokasi_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="208dp"
+        android:gravity="center"
+>>>>>>> Stashed changes
         android:text="b"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +73,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+<<<<<<< Updated upstream
         android:id="@+id/syarat_pekerjaan"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -112,5 +141,27 @@
         app:layout_constraintBottom_toTopOf="@+id/detail_pekerjaan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/syarat_pekerjaan" />
+=======
+        android:id="@+id/nama_lowongan_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="175dp"
+        android:gravity="center"
+        android:text="c"
+        app:layout_constraintTop_toBottomOf="@+id/lokasi_detail"
+        tools:layout_editor_absoluteX="83dp" />
+>>>>>>> Stashed changes
 
-</android.support.constraint.ConstraintLayout>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

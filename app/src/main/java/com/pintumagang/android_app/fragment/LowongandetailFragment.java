@@ -33,6 +33,9 @@ public class LowongandetailFragment extends Fragment {
 
         TextView nama_lowongan = (TextView) rootView.findViewById(R.id.nama_lowongan_detail);
         ImageView imageView = (ImageView) rootView.findViewById(R.id.logo_detail);
+        TextView nama_perusahaan = (TextView) rootView.findViewById(R.id.nama_perusahaan_detail);
+        TextView lokasi = (TextView) rootView.findViewById(R.id.lokasi_detail);
+
         if (getArguments() != null){
             lowonganList = (Lowongan) getArguments().getSerializable("lowonganValue");
         }
@@ -42,7 +45,14 @@ public class LowongandetailFragment extends Fragment {
                     .load(lowonganList.getLogo())
                     .into(imageView);
             String nama = lowonganList.getNama_lowongan().toString();
+            String namaPerusahaan = lowonganList.getNama_perusahaan().toString();
+            String lokasi_detail = lowonganList.getLokasi().toString();
+
+
+            nama_perusahaan.setText(namaPerusahaan);
+            lokasi.setText(lokasi_detail);
             nama_lowongan.setText(nama);
+
 
         }else {
             System.out.println("tidak ada data");

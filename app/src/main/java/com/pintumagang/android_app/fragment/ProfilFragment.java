@@ -48,11 +48,16 @@ public class ProfilFragment extends Fragment {
         User user = SharedPrefManager.getInstance(getActivity()).getUser();
         Mahasiswa mahasiswa = SharedPrefManager.getInstance(getActivity()).getMahasiswa();
 
+
+        String namaDepan = mahasiswa.getNamaDepan();
+        String namaBelakang = mahasiswa.getNamaBelakang();
+        String namaLengkap = namaDepan +" "+namaBelakang;
         //setting the values to the textviews
         textViewId.setText(String.valueOf(user.getId()));
         textViewUsername.setText(user.getUsername());
         textViewEmail.setText(user.getEmail());
-        textViewNamaDepan.setText(mahasiswa.getNamaDepan());
+
+        textViewNamaDepan.setText(namaLengkap);
 
         //when the user presses logout button
         //calling the logout method
