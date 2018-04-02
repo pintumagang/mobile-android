@@ -6,7 +6,7 @@ package com.pintumagang.android_app;
  */
 
 public class URLs {
-    private static final String ROOT_URL = "http://192.168.100.6/mobile-android/Api.php?apicall=";
+    private static final String ROOT_URL = "http://pintumagang.jktserver.com/mobile-android/Api.php?apicall=";
 
 
     public static final String URL_REGISTER = ROOT_URL + "signup";

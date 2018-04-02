@@ -31,10 +31,10 @@ public class LowongandetailFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_lowongandetail, container, false);
 
-        TextView nama_lowongan = (TextView) rootView.findViewById(R.id.nama_lowongan_detail);
+        TextView nama_lowongan = (TextView) rootView.findViewById(R.id.textView7);
         ImageView imageView = (ImageView) rootView.findViewById(R.id.logo_detail);
-        TextView nama_perusahaan = (TextView) rootView.findViewById(R.id.nama_perusahaan_detail);
-        TextView lokasi = (TextView) rootView.findViewById(R.id.lokasi_detail);
+        TextView nama_perusahaan = (TextView) rootView.findViewById(R.id.deskripsi_perusahaan);
+        TextView lokasi = (TextView) rootView.findViewById(R.id.lokasi_perusahaan);
 
         if (getArguments() != null){
             lowonganList = (Lowongan) getArguments().getSerializable("lowonganValue");
