@@ -69,6 +69,17 @@ public class ProfilFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.buttonSunting).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                SuntingprofilFragment spf = new SuntingprofilFragment();
+                android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.content, spf);
+                ft.addToBackStack("list");
+                ft.commit();
+            }
+        });
+
         // Inflate the layout for this fragment
         return view;
 

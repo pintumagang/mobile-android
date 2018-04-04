@@ -95,7 +95,11 @@
 
 
         </TableLayout>
-
+        <Button
+            android:id="@+id/buttonSunting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sunting profil" />
         <Button
             android:id="@+id/buttonLogout"
             android:layout_width="match_parent"
