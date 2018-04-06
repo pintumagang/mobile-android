@@ -149,7 +149,7 @@ public class LowonganFragment extends Fragment{
         final ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar1);
 
         //Displaying Progressbar
-        progressBar.setVisibility(View.VISIBLE);
+        //progressBar.setVisibility(View.VISIBLE);
         getActivity().setProgressBarIndeterminate(true);
         /*
         * Creating a String Request

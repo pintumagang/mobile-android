@@ -2,6 +2,8 @@ package com.pintumagang.android_app;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -16,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.pintumagang.android_app.entity.Mahasiswa;
 import com.pintumagang.android_app.entity.User;
+import android.widget.ProgressBar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,6 +30,9 @@ public class ForgotpasswordActivity extends AppCompatActivity {
 
     private Button btn_reset;
     private EditText editTextEmailUsername;
+    private ProgressBar progressbar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +40,13 @@ public class ForgotpasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forgotpassword);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        progressbar = (ProgressBar)findViewById(R.id.progressBar1);
+        //progressbar.setVisibility(View.INVISIBLE);
+
 
         editTextEmailUsername = (EditText)findViewById(R.id.username_email);
         btn_reset = (Button)findViewById(R.id.btn_reset_password);
+
 
         btn_reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +59,8 @@ public class ForgotpasswordActivity extends AppCompatActivity {
     private void forgotPassword() {
         //first getting the values
         final String username_email = editTextEmailUsername.getText().toString();
-
+        final AlertDialog.Builder Alert_builder = new AlertDialog.Builder(this);
+        //Displaying Progressbar
         //validating inputs
         if (TextUtils.isEmpty(username_email)) {
             editTextEmailUsername.setError("Masukkan Username atau Email anda");
@@ -62,15 +73,34 @@ public class ForgotpasswordActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //  progressBar.setVisibility(View.GONE);
+                        progressbar.setVisibility(View.GONE);
+                        //progressBar.setVisibility(View.VISIBLE);
+                        //setProgressBarIndeterminate(true);
+
 
                         try {
                             //converting response to json object
                             JSONObject obj = new JSONObject(response);
+                            //org.json.JSONArray message = obj.getJSONArray("message");
 
                             //if no error in response
                             if (!obj.getBoolean("error")) {
-                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+
+                                Alert_builder.setTitle("Info:");
+                                Alert_builder.setMessage(obj.getString("message"));
+                                //Alert_builder.setIcon(R.drawable.alert);
+                                // adding one button
+                                Alert_builder.setPositiveButton("Ok", new android.content.DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(android.content.DialogInterface dialog, int which) {
+
+                                }
+                                });
+
+                                Alert_builder.create();
+                                Alert_builder.show();
 
 
                                 //starting the profile activity
@@ -91,7 +121,7 @@ public class ForgotpasswordActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("username", username_email);
+                params.put("username_email", username_email);
                 return params;
             }
         };
