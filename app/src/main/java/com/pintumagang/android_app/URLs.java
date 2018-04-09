@@ -14,4 +14,6 @@ public class URLs {
     public static final String URL_LOWONGAN_LIST= ROOT_URL + "lowongan_list";
     public static final String URL_PRODI_LIST= ROOT_URL + "prodi_list";
     public static final String URL_FORGOT_PASSWORD = ROOT_URL + "forgot_password";
+    public static final String URL_SIMPAN_LOWONGAN = ROOT_URL + "simpan_lowongan";
+    public static final String URL_FAVORIT_LIST = ROOT_URL + "favorit_list";
 }
