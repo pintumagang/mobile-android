@@ -93,7 +93,7 @@ public class FavoritFragment extends Fragment {
         final String id_user = String.valueOf(user.getId());
         //Displaying Progressbar
         //progressBar.setVisibility(View.VISIBLE);
-        getActivity().setProgressBarIndeterminate(true);
+        //getActivity().setProgressBarIndeterminate(true);
         /*
          * Creating a String Request
          * The request type is GET defined by first parameter
