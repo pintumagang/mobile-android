@@ -1,7 +1,9 @@
 package com.pintumagang.android_app.fragment;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -26,6 +28,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.pintumagang.android_app.MainActivity;
 import com.pintumagang.android_app.R;
 import com.pintumagang.android_app.SharedPrefManager;
 import com.pintumagang.android_app.URLs;
@@ -178,13 +181,14 @@ public class FavoritFragment extends Fragment {
         @Override
         public LowonganViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(mCtx);
-            View view = inflater.inflate(R.layout.lowongan_list, null);
+            View view = inflater.inflate(R.layout.favorit_list, null);
             return new LowonganViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(LowonganViewHolder holder, final int position) {
             final Lowongan lowongan = lowonganList.get(position);
+            final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
 
 
             //loading the image
@@ -196,6 +200,33 @@ public class FavoritFragment extends Fragment {
             holder.textViewNamaPerusahaan.setText(lowongan.getNama_perusahaan());
             holder.textViewLokasi.setText(String.valueOf(lowongan.getLokasi()));
             holder.textViewWaktuInput.setText(String.valueOf(lowongan.getWaktu_input()));
+
+            holder.delete_favorit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(mCtx, "you "+lowongan.getNama_lowongan(), Toast.LENGTH_LONG).show();
+
+                    alertDialogBuilder.setMessage("Anda Ingin menghapus dari favorit?");
+                    alertDialogBuilder.setPositiveButton("yes",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface arg0, int arg1) {
+                                            //Toast.makeText(getActivity(),"You clicked yes button",Toast.LENGTH_LONG).show();
+                                            hapus_favorit(String.valueOf(lowongan.getId_lowongan()));
+                                        }
+                                    });
+
+                    alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //finish();
+                        }
+                    });
+
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                }
+            });
 
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -223,7 +254,7 @@ public class FavoritFragment extends Fragment {
         class LowonganViewHolder extends RecyclerView.ViewHolder {
 
             public TextView textViewNamaLowongan, textViewNamaPerusahaan, textViewLokasi, textViewWaktuInput;
-            public ImageView imageView;
+            public ImageView imageView,delete_favorit;
             public CardView cardView;
 
             public LowonganViewHolder(View itemView) {
@@ -235,9 +266,70 @@ public class FavoritFragment extends Fragment {
                 textViewWaktuInput = (TextView) itemView.findViewById(R.id.textViewWaktuInput);
                 imageView = (ImageView) itemView.findViewById(R.id.imageView);
                 cardView = (CardView) itemView.findViewById(R.id.cardView);
+                delete_favorit = (ImageView) itemView.findViewById(R.id.delete_favorit);
             }
         }
 
 
+    }
+
+    private void hapus_favorit(String id_lowongan) {
+        //first getting the values
+        //final String username_email = editTextEmailUsername.getText().toString();
+        final android.support.v7.app.AlertDialog.Builder Alert_builder = new android.support.v7.app.AlertDialog.Builder(getActivity());
+        User user = SharedPrefManager.getInstance(getActivity()).getUser();
+        final String id_user = String.valueOf(user.getId());
+        final String idlowongan = id_lowongan;
+
+        System.out.println(id_user +" "+ idlowongan);
+
+
+        //if everything is fine
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_HAPUS_FAVORIT,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //progressbar.setVisibility(View.GONE);
+                        //progressBar.setVisibility(View.VISIBLE);
+                        //setProgressBarIndeterminate(true);
+
+
+                        try {
+                            //converting response to json object
+                            JSONObject obj = new JSONObject(response);
+                            //org.json.JSONArray message = obj.getJSONArray("message");
+
+                            //if no error in response
+                            if (!obj.getBoolean("error")) {
+                                //Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+
+                                loadFavorit();
+
+
+                                //starting the profile activity
+                            } else {
+                                Toast.makeText(getActivity().getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity().getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("id_user", id_user);
+                params.put("id_lowongan", idlowongan);
+                return params;
+            }
+        };
+
+        VolleySingleton.getInstance(getActivity()).addToRequestQueue(stringRequest);
     }
 }
