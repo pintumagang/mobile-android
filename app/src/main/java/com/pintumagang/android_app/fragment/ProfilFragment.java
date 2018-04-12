@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,6 +93,17 @@ public class ProfilFragment extends Fragment {
                 SuntingprofilFragment spf = new SuntingprofilFragment();
                 android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.content, spf);
+                ft.addToBackStack("list");
+                ft.commit();
+            }
+        });
+
+        view.findViewById(R.id.btn_statuslamar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StatuslamarFragment slf= new StatuslamarFragment();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.content,slf);
                 ft.addToBackStack("list");
                 ft.commit();
             }

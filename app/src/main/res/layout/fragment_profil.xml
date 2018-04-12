@@ -244,7 +244,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@color/grey" />
             <TextView
-                android:id="@+id/btn_lamar"
+                android:id="@+id/btn_statuslamar"
                 android:text="Status Lamar"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
