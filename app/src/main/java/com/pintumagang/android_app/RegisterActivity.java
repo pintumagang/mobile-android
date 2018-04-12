@@ -148,11 +148,13 @@ public class RegisterActivity extends AppCompatActivity {
                                 Mahasiswa mahasiswa= new Mahasiswa(
                                         mahasiswaJson.getInt("id_mhs"),
                                         mahasiswaJson.getInt("id_user"),
-                                        mahasiswaJson.getString("nama_depan"),
-                                        mahasiswaJson.getString("nama_belakang")
-                                        //mahasiswaJson.getString("perguruan_tinggi"),
-                                        //mahasiswaJson.getString("hp"),
-                                        //mahasiswaJson.getString("cv")
+                                        mahasiswaJson.getString("namaDepan"),
+                                        mahasiswaJson.getString("namaBelakang"),
+                                        mahasiswaJson.getString("foto"),
+                                        mahasiswaJson.getString("perguruan_tinggi"),
+                                        mahasiswaJson.getString("hp"),
+                                        mahasiswaJson.getString("linkedin")
+
                                 );
 
                                 //storing the user in shared preferences

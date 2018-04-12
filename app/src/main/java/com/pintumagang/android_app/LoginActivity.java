@@ -107,10 +107,11 @@ public class LoginActivity extends AppCompatActivity {
                                         mahasiswaJson.getInt("id_mhs"),
                                         mahasiswaJson.getInt("id_user"),
                                         mahasiswaJson.getString("namaDepan"),
-                                        mahasiswaJson.getString("namaBelakang")
-                                   //     mahasiswaJson.getString("perguruan_tinggi"),
-                                   //     mahasiswaJson.getString("hp"),
-                                   //     mahasiswaJson.getString("cv")
+                                        mahasiswaJson.getString("namaBelakang"),
+                                        mahasiswaJson.getString("foto"),
+                                        mahasiswaJson.getString("perguruan_tinggi"),
+                                        mahasiswaJson.getString("hp"),
+                                        mahasiswaJson.getString("linkedin")
                                 );
 
                                 //storing the user in shared preferences

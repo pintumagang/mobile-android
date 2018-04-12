@@ -1,109 +1,293 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.pintumagang.android_app.MainActivity">
 
+    <RelativeLayout
 
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        >
 
-        <TableLayout
+        <RelativeLayout
+            android:id="@+id/rellay1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:background="@drawable/grad"
+            android:paddingBottom="20dp">
+
+            <ImageView
+                android:id="@+id/imgUser"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="9dp"
+                android:layout_centerHorizontal="true"
+                android:adjustViewBounds="true"
+                android:background="@drawable/search_view"
+                android:padding="3dp"
+                android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/textViewNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgUser"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15sp"
+            android:fontFamily="sans-serif-light"
+            android:text="Ari Bambang Kurniawan"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="24dp" />
 
 
-            <TableRow>
+        <TextView
+            android:id="@+id/textViewPT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewNama"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif"
+            android:text="Institut Teknologi Bandung"
+            android:textAllCaps="true"
+            android:textColor="@color/address"
+            android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/buttonSunting"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/ic_settings_black_24dp" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/linley1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@color/white"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:layout_below="@+id/rellay1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Id"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-                <TextView
-                    android:id="@+id/textViewId"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="1"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-            </TableRow>
-
-            <TableRow>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
                     android:text="Username"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:textColor="@color/headings"
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/textViewUsername"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
+                    android:fontFamily="sans-serif-light"
                     android:text="bambang"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
-            </TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/grey" />
 
-            <TableRow>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
                     android:text="Email"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:textColor="@color/headings"
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/textViewEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="bambang@jktserver.com"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:fontFamily="sans-serif-light"
+                    android:text="ari@pintumagang.com"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
-            </TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/grey" />
 
-            <TableRow>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="nama depan"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:text="Handphone"
+                    android:textColor="@color/headings"
+                    android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/textViewNamaDepan"
+                    android:id="@+id/textViewHp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="L"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                    android:fontFamily="sans-serif-light"
+                    android:text="085779911732"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
-            </TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/grey" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Linkedin"
+                    android:textColor="@color/headings"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textViewLinkedin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="linkedin.com/in/aribambang"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/grey" />
+
+            </LinearLayout>
 
 
-        </TableLayout>
-        <Button
-            android:id="@+id/buttonSunting"
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/status_lamar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sunting profil" />
-        <Button
+            android:layout_marginTop="15dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_below="@id/linley1"
+            android:background="@color/white"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Untuk melihat status lamaran dapat dilihat disini"
+
+                android:textSize="14dp"
+                android:gravity="center"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@android:color/darker_gray"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/grey" />
+            <TextView
+                android:id="@+id/btn_lamar"
+                android:text="Status Lamar"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@android:color/holo_blue_light"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/buttonLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Logout" />
-    </LinearLayout>
-</RelativeLayout>
+            android:layout_marginTop="15dp"
+
+            android:layout_marginBottom="75dp"
+            android:paddingBottom="15dp"
+
+            android:layout_below="@id/status_lamar"
+            android:background="@color/white"
+
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Logout"
+                android:paddingTop="10dp"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@android:color/holo_red_dark"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</ScrollView>

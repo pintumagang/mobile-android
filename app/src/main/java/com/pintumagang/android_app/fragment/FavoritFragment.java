@@ -303,7 +303,10 @@ public class FavoritFragment extends Fragment {
                             if (!obj.getBoolean("error")) {
                                 //Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
-                                loadFavorit();
+                                lowonganList.clear();
+                                lowonganList = loadFavorit();
+                                mAdapter = new FavoritAdapter(getActivity(), lowonganList);
+                                recyclerView.setAdapter(mAdapter);
 
 
                                 //starting the profile activity

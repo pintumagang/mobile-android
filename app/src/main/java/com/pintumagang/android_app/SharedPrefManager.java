@@ -24,7 +24,8 @@ public class SharedPrefManager {
     private static final String KEY_NAMA_BELAKANG ="keynamabelakang";
     private static final String KEY_PERGURUAN_TINGGI = "keyperguruantinggi";
     private static final String KEY_HP = "keyhp";
-    private static final String KEY_CV = "keycv";
+    private static final String KEY_LINKEDIN = "keylinkedin";
+    private static final String KEY_FOTO = "keyfoto";
 
     private static SharedPrefManager mInstance;
     private static Context mCtx;
@@ -58,9 +59,11 @@ public class SharedPrefManager {
         editor.putInt(KEY_ID_MAHASISWA, mahasiswa.getId());
         editor.putString(KEY_NAMA_DEPAN, mahasiswa.getNamaDepan());
         editor.putString(KEY_NAMA_BELAKANG, mahasiswa.getNamaBelakang());
-        //editor.putString(KEY_PERGURUAN_TINGGI, mahasiswa.getPerguruan_tinggi());
-        //editor.putString(KEY_HP,mahasiswa.getHp());
-        //editor.putString(KEY_CV,mahasiswa.getCv());
+        editor.putString(KEY_FOTO,mahasiswa.getFoto());
+        editor.putString(KEY_PERGURUAN_TINGGI, mahasiswa.getPerguruan_tinggi());
+        editor.putString(KEY_HP,mahasiswa.getHp());
+        editor.putString(KEY_LINKEDIN,mahasiswa.getLinkedin());
+
         editor.apply();
     }
 
@@ -86,10 +89,12 @@ public class SharedPrefManager {
                 sharedPreferences.getInt(KEY_ID, -1),
                 sharedPreferences.getInt(KEY_ID_MAHASISWA, -1),
                 sharedPreferences.getString(KEY_NAMA_DEPAN, null),
-                sharedPreferences.getString(KEY_NAMA_BELAKANG, null)
-            //    sharedPreferences.getString(KEY_PERGURUAN_TINGGI,null),
-            //    sharedPreferences.getString(KEY_HP,null),
-            //    sharedPreferences.getString(KEY_CV,null)
+                sharedPreferences.getString(KEY_NAMA_BELAKANG, null),
+                sharedPreferences.getString(KEY_FOTO,null),
+                sharedPreferences.getString(KEY_PERGURUAN_TINGGI,null),
+                sharedPreferences.getString(KEY_HP,null),
+                sharedPreferences.getString(KEY_LINKEDIN,null)
+
         );
     }
 

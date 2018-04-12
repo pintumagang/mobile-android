@@ -7,7 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.pintumagang.android_app.*;
 import com.pintumagang.android_app.entity.Mahasiswa;
 import com.pintumagang.android_app.entity.User;
@@ -20,7 +23,8 @@ import com.pintumagang.android_app.R;
  */
 public class ProfilFragment extends Fragment {
 
-    TextView textViewId, textViewUsername, textViewEmail, textViewNamaDepan;
+    TextView textViewId, textViewUsername, textViewEmail, textViewNama, textViewPerguruanTinggi,textViewHp,textViewLinkedin;
+    ImageView imgUser;
     //rofilFragment context = this;
     public ProfilFragment() {
         // Required empty public constructor
@@ -38,10 +42,14 @@ public class ProfilFragment extends Fragment {
         }
 
 
-        textViewId = (TextView)view.findViewById(R.id.textViewId);
+        //textViewId = (TextView)view.findViewById(R.id.textViewId);
         textViewUsername = (TextView)view.findViewById(R.id.textViewUsername);
         textViewEmail = (TextView)view.findViewById(R.id.textViewEmail);
-        textViewNamaDepan = (TextView)view.findViewById(R.id.textViewNamaDepan);
+        textViewNama = (TextView)view.findViewById(R.id.textViewNama);
+        imgUser = (ImageView)view.findViewById(R.id.imgUser);
+        textViewPerguruanTinggi = (TextView)view.findViewById(R.id.textViewPT);
+        textViewHp = (TextView)view.findViewById(R.id.textViewHp);
+        textViewLinkedin = (TextView)view.findViewById(R.id.textViewLinkedin);
 
 
         //getting the current user
@@ -52,12 +60,21 @@ public class ProfilFragment extends Fragment {
         String namaDepan = mahasiswa.getNamaDepan();
         String namaBelakang = mahasiswa.getNamaBelakang();
         String namaLengkap = namaDepan +" "+namaBelakang;
+        String perguruan_tinggi = mahasiswa.getPerguruan_tinggi();
+        String hp = mahasiswa.getHp();
+        String linkedin = mahasiswa.getLinkedin();
         //setting the values to the textviews
-        textViewId.setText(String.valueOf(user.getId()));
+        //textViewId.setText(String.valueOf(user.getId()));
+        Glide.with(this)
+                .load(mahasiswa.getFoto())
+                .into(imgUser);
         textViewUsername.setText(user.getUsername());
         textViewEmail.setText(user.getEmail());
 
-        textViewNamaDepan.setText(namaLengkap);
+        textViewNama.setText(namaLengkap);
+        textViewPerguruanTinggi.setText(perguruan_tinggi);
+        textViewHp.setText(hp);
+        textViewLinkedin.setText(linkedin);
 
         //when the user presses logout button
         //calling the logout method
