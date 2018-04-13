@@ -24,7 +24,7 @@
             android:layout_alignParentLeft="true">
 
             <ImageView
-                android:id="@+id/imgUser"
+                android:id="@+id/imgUser1"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_centerHorizontal="true"
@@ -60,11 +60,12 @@
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/textViewUsername"
+                    android:id="@+id/editTextUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:text="bambang"
+                    android:editable="false"
                     android:textColor="#000000"
                     android:background="@color/white"
                     android:textSize="18sp" />
@@ -93,7 +94,7 @@
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/textViewEmail"
+                    android:id="@+id/editTextEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -127,7 +128,7 @@
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/textViewNamadepan"
+                    android:id="@+id/editTextNamadepan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -160,7 +161,7 @@
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/textViewNamabelakang"
+                    android:id="@+id/editTextNamabelakang"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -177,7 +178,38 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perguruan Tinggi"
+                    android:textColor="@color/headings"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/editTextPerguruantinggi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="ITB"
+                    android:textColor="#000000"
+                    android:background="@color/white"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/grey" />
+
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -194,7 +226,7 @@
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/textViewHp"
+                    android:id="@+id/editTextHp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -227,7 +259,7 @@
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/textViewLinkedin"
+                    android:id="@+id/editTextLinkedin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
