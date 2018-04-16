@@ -67,6 +67,33 @@ public class SharedPrefManager {
         editor.apply();
     }
 
+
+    public void ubahFotoProfil(String foto){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_FOTO,foto);
+        editor.apply();
+    }
+
+    public void ubahEmailUser(String email){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_EMAIL,email);
+        editor.apply();
+    }
+
+    public void ubahProfilMahasiswa(String nama_depan,String nama_belakang,String perguruan_tinggi,String hp, String linkedin) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_NAMA_DEPAN, nama_depan);
+        editor.putString(KEY_NAMA_BELAKANG, nama_belakang);
+        editor.putString(KEY_PERGURUAN_TINGGI, perguruan_tinggi);
+        editor.putString(KEY_HP, hp);
+        editor.putString(KEY_LINKEDIN, linkedin);
+
+        editor.apply();
+    }
+
     //this method will checker whether user is already logged in or not
     public boolean isLoggedIn() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
@@ -86,8 +113,9 @@ public class SharedPrefManager {
     public Mahasiswa getMahasiswa() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new Mahasiswa(
-                sharedPreferences.getInt(KEY_ID, -1),
+
                 sharedPreferences.getInt(KEY_ID_MAHASISWA, -1),
+                sharedPreferences.getInt(KEY_ID, -1),
                 sharedPreferences.getString(KEY_NAMA_DEPAN, null),
                 sharedPreferences.getString(KEY_NAMA_BELAKANG, null),
                 sharedPreferences.getString(KEY_FOTO,null),

@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorTulisan"
-    tools:context=".MainActivity">
 
-    <ScrollView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        tools:context=".MainActivity"
+
+    android:layout_marginBottom="50dp">
 
         <RelativeLayout
+            android:id="@+id/relay"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+
 
             <RelativeLayout
                 android:id="@+id/layout_top"
@@ -49,388 +51,40 @@
                     android:orientation="horizontal" />
 
             </RelativeLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/textttt"
+                android:layout_below="@+id/layout_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/address"
+                android:textSize="14sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="Cari lowongan berdasarkan program studi"/>
+            <GridView
+                android:id="@+id/griview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="75dp"
-                android:layout_marginTop="200dp"
-                android:background="@color/colorTulisan"
-                android:orientation="horizontal"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp">
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="5dp">
+                android:layout_marginRight="10dp"
+                android:columnWidth="100dp"
+                android:scrollbars="none"
+                android:gravity="center"
+                android:horizontalSpacing="10dp"
+                android:numColumns="3"
+                android:layout_below="@+id/textttt"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="10dp"/>
 
-                    <android.support.v7.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp">
 
-                        <RelativeLayout
-                            android:id="@+id/prodi_if"
-                            android:onClick="onClick"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
 
-                            <ImageView
-                                android:id="@+id/imageview"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginRight="5dp"
-                                android:background="@color/colorTulisan"
-                                />
-                            <TextView
-                                android:id="@+id/textif"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignLeft="@+id/imageview"
-                                android:layout_alignTop="@+id/imageview"
-                                android:layout_alignRight="@+id/imageview"
-                                android:layout_alignBottom="@+id/imageview"
-                                android:layout_margin="1dp"
-                                android:gravity="center"
-                                android:text="IF"
-                                android:textSize="24dp"
-                                android:textStyle="bold"
-                                android:textColor="#FFFF" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toRightOf="@+id/imageview"
-                                android:text="Teknik Informatika" />
-                        </RelativeLayout>
-                    </android.support.v7.widget.CardView>
 
-                    <android.support.v7.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="5dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
-
-                            <ImageView
-                                android:id="@+id/imageview2"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:background="@android:color/holo_orange_dark"
-                                android:layout_marginRight="5dp"
-                                 />
-                            <TextView
-                                android:id="@+id/ImageViewtg"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignLeft="@+id/imageview2"
-                                android:layout_alignTop="@+id/imageview2"
-                                android:layout_alignRight="@+id/imageview2"
-                                android:layout_alignBottom="@+id/imageview2"
-                                android:layout_margin="1dp"
-                                android:gravity="center"
-                                android:text="TG"
-                                android:textSize="24dp"
-                                android:textStyle="bold"
-                                android:textColor="#FFFF" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toRightOf="@+id/imageview2"
-                                android:text="Teknik Geofisika" />
-                        </RelativeLayout>
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="5dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
-
-                            <ImageView
-                                android:id="@+id/imageview3"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginRight="5dp"
-                                android:background="@android:color/holo_blue_dark"
-                                 />
-
-                            <TextView
-                                android:id="@+id/ImageViewpwk"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignLeft="@+id/imageview3"
-                                android:layout_alignTop="@+id/imageview3"
-                                android:layout_alignRight="@+id/imageview3"
-                                android:layout_alignBottom="@+id/imageview3"
-                                android:layout_margin="1dp"
-                                android:gravity="center"
-                                android:text="PL"
-                                android:textSize="24dp"
-                                android:textStyle="bold"
-                                android:textColor="#FFFF" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toRightOf="@+id/imageview3"
-                                android:text="PWK" />
-                        </RelativeLayout>
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="5dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
-
-                            <ImageView
-                                android:id="@+id/imageview4"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginRight="5dp"
-                                android:background="@android:color/holo_green_dark"
-                                 />
-                            <TextView
-                                android:id="@+id/ImageViewfi"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignLeft="@+id/imageview4"
-                                android:layout_alignTop="@+id/imageview4"
-                                android:layout_alignRight="@+id/imageview4"
-                                android:layout_alignBottom="@+id/imageview4"
-                                android:layout_margin="1dp"
-                                android:gravity="center"
-                                android:text="FI"
-                                android:textSize="24dp"
-                                android:textStyle="bold"
-                                android:textColor="#FFFF" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toRightOf="@+id/imageview4"
-                                android:text="Fisika" />
-                        </RelativeLayout>
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="5dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
-
-                            <ImageView
-                                android:id="@+id/imageview15"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginRight="5dp"
-                                 />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toRightOf="@+id/imageview15"
-                                android:text="Teknik Mesin" />
-                        </RelativeLayout>
-                    </android.support.v7.widget.CardView>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="5dp">
-
-                    <android.support.v7.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
-
-                            <ImageView
-                                android:id="@+id/imageview1"
-                                android:layout_width="50dp"
-
-                                android:layout_height="50dp"
-                                android:background="@android:color/holo_green_light"
-                                android:layout_marginRight="5dp"
-                                 />
-
-                            <TextView
-                                android:id="@+id/myImageViewText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignLeft="@+id/imageview1"
-                                android:layout_alignTop="@+id/imageview1"
-                                android:layout_alignRight="@+id/imageview1"
-                                android:layout_alignBottom="@+id/imageview1"
-                                android:layout_margin="1dp"
-                                android:gravity="center"
-                                android:text="EL"
-                                android:textSize="24dp"
-                                android:textStyle="bold"
-                                android:textColor="@android:color/holo_orange_light" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toRightOf="@+id/imageview1"
-                                android:text="Teknik Elektro" />
-                        </RelativeLayout>
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="5dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
-
-                            <ImageView
-                                android:id="@+id/imageview21"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginRight="5dp"
-                                android:background="@android:color/holo_red_light"
-                                 />
-                            <TextView
-                                android:id="@+id/textsi"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignLeft="@+id/imageview21"
-                                android:layout_alignTop="@+id/imageview21"
-                                android:layout_alignRight="@+id/imageview21"
-                                android:layout_alignBottom="@+id/imageview21"
-                                android:layout_margin="1dp"
-                                android:gravity="center"
-                                android:text="SI"
-                                android:textSize="24dp"
-                                android:textStyle="bold"
-                                android:textColor="#FFFF" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toRightOf="@+id/imageview21"
-                                android:text="Teknik Sipil" />
-                        </RelativeLayout>
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="5dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
-
-                            <ImageView
-                                android:id="@+id/imageview22"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginRight="5dp"
-                                android:background="@android:color/darker_gray"
-                                 />
-
-                            <TextView
-                                android:id="@+id/ImageViewgt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignLeft="@+id/imageview22"
-                                android:layout_alignTop="@+id/imageview22"
-                                android:layout_alignRight="@+id/imageview22"
-                                android:layout_alignBottom="@+id/imageview22"
-                                android:layout_margin="1dp"
-                                android:gravity="center"
-                                android:text="GT"
-                                android:textSize="24dp"
-                                android:textStyle="bold"
-                                android:textColor="@android:color/holo_orange_light" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toRightOf="@+id/imageview22"
-                                android:text="Teknik Geomatika" />
-                        </RelativeLayout>
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="5dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="20dp">
-
-                            <ImageView
-                                android:id="@+id/imageview23"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginRight="5dp"
-                                 />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_toRightOf="@+id/imageview23"
-                                android:text="Matematika" />
-                        </RelativeLayout>
-                    </android.support.v7.widget.CardView>
-                </LinearLayout>
-            </LinearLayout>
         </RelativeLayout>
-    </ScrollView>
-</RelativeLayout>
+    </RelativeLayout>
+

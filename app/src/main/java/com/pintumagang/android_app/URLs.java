@@ -18,4 +18,7 @@ public class URLs {
     public static final String URL_FAVORIT_LIST = ROOT_URL + "favorit_list";
     public static final String URL_HAPUS_FAVORIT = ROOT_URL + "hapus_favorit";
     public static final String URL_UBAH_PASSWORD = ROOT_URL + "ubah_password";
+    public static final String URL_UPDATE_PROFIL = ROOT_URL + "update_profil";
+    public static final String URL_UBAH_FOTO = ROOT_URL + "ubah_foto";
+    public static final String URL_DETAIL_PERUSAHAAN = ROOT_URL + "detail_perusahaan";
 }

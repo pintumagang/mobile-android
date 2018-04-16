@@ -41,7 +41,7 @@ import java.util.Map;
 public class LowongandetailFragment extends Fragment {
     Lowongan lowonganList;
     private AdView mAdView;
-    private String id_lowongan;
+    private String id_lowongan,id_perusahaan;
 
     public LowongandetailFragment() {
         // Required empty public constructor
@@ -61,16 +61,7 @@ public class LowongandetailFragment extends Fragment {
         TextView deadline = (TextView) rootView.findViewById(R.id.isi_deadline_lowongan_detail);
         TextView desc = (TextView) rootView.findViewById(R.id.isi_deskripsi_lowongan_detail);
 
-        rootView.findViewById(R.id.lihat_perusahaan).setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                PerusahaanFragment pf = new PerusahaanFragment();
-                android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.content, pf);
-                ft.addToBackStack("list");
-                ft.commit();
-            }
-        });
+
 
         rootView.findViewById(R.id.btn_lamar).setOnClickListener(new View.OnClickListener(){
             @Override
@@ -103,6 +94,7 @@ public class LowongandetailFragment extends Fragment {
             String deskripsi = lowonganList.getDeskripsi().toString();
             String deadline_submit = lowonganList.getDeadline_submit();
             id_lowongan = String.valueOf(lowonganList.getId_lowongan());
+            id_perusahaan = String.valueOf(lowonganList.getId_perusahaan());
 
 
             nama_perusahaan.setText(namaPerusahaan);
@@ -119,6 +111,20 @@ public class LowongandetailFragment extends Fragment {
             @Override
             public void onClick(View view){
                 simpan_lowongan();
+            }
+        });
+
+        rootView.findViewById(R.id.lihat_perusahaan).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("id_perusahaan", id_perusahaan);
+                PerusahaanFragment pf = new PerusahaanFragment();
+                pf.setArguments(bundle);
+                android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.content, pf);
+                ft.addToBackStack("list");
+                ft.commit();
             }
         });
 

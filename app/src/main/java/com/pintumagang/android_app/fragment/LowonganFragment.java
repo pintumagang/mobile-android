@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -33,7 +34,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdRequest;
@@ -57,6 +60,7 @@ public class LowonganFragment extends Fragment{
     private View rootView;
     private AdView mAdView;
     public RecyclerView recyclerView;
+    private String prodi;
 
 
 
@@ -75,6 +79,7 @@ public class LowonganFragment extends Fragment{
         mAdView = (AdView) rootView.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        prodi = (String) getArguments().getSerializable("prodiValue");
 
 
         lowonganList = new ArrayList<Lowongan>();
@@ -84,8 +89,6 @@ public class LowonganFragment extends Fragment{
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         EditText search_view = (EditText) rootView.findViewById(R.id.search_view);
-
-
 
 
         //lowonganFilter.addAll(lowonganList);
@@ -158,7 +161,7 @@ public class LowonganFragment extends Fragment{
         * Then we have a Response Listener and a Error Listener
         * In response listener we will get the JSON response as a String
         * */
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URLs.URL_LOWONGAN_LIST,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_LOWONGAN_LIST,
 
                 new Response.Listener<String>() {
                     @Override
@@ -166,6 +169,10 @@ public class LowonganFragment extends Fragment{
                         try {
                             //converting the string to json array object
                             JSONArray array = new JSONArray(response);
+
+                            if(array.length()==0){
+                            Toast.makeText(getContext(), "Tidak ada lowongan", Toast.LENGTH_SHORT).show();
+                            }
 
                             //traversing through all the object
                             for (int i = 0; i < array.length(); i++) {
@@ -203,7 +210,17 @@ public class LowonganFragment extends Fragment{
                         progressBar.setVisibility(rootView.GONE);
                         Toast.makeText(getContext(), "No More Items Available", Toast.LENGTH_SHORT).show();
                     }
-                });
+                })
+            {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                params.put("id_prodi", prodi);
+                System.out.println(prodi);
+                return params;
+            }
+        };
 
         //adding our stringrequest to queue
         Volley.newRequestQueue(getActivity()).add(stringRequest);

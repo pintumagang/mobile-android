@@ -1,8 +1,15 @@
 package com.pintumagang.android_app.fragment;
 
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +19,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.pintumagang.android_app.R;
 import com.pintumagang.android_app.SharedPrefManager;
 import com.pintumagang.android_app.URLs;
@@ -25,6 +34,11 @@ import com.pintumagang.android_app.entity.User;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,6 +65,15 @@ public class UbahpasswordFragment extends Fragment {
         passwordBaru= (EditText)rootView.findViewById(R.id.passwordbaru);
         konfirmasiPassword = (EditText)rootView.findViewById(R.id.konfirmasipassword);
         ubahPassword = (TextView)rootView.findViewById(R.id.btn_ubahkatasandi);
+
+        passwordLama.setFocusableInTouchMode(true);
+        passwordLama.requestFocus();
+        passwordBaru.setFocusableInTouchMode(true);
+        passwordBaru.requestFocus();
+        konfirmasiPassword.setFocusableInTouchMode(true);
+        konfirmasiPassword.requestFocus();
+
+
 
         ubahPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,7 +179,6 @@ public class UbahpasswordFragment extends Fragment {
                 params.put("id_user", id_user);
                 params.put("password_lama", passwdlama);
                 params.put("password_baru",passwdbaru);
-                params.put("konfirmasi_password", konfirmasipasswd);
                 return params;
             }
         };

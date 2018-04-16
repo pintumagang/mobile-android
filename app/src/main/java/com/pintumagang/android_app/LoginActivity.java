@@ -104,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                                 );
 
                                 Mahasiswa mahasiswa= new Mahasiswa(
+
                                         mahasiswaJson.getInt("id_mhs"),
                                         mahasiswaJson.getInt("id_user"),
                                         mahasiswaJson.getString("namaDepan"),
