@@ -21,4 +21,5 @@ public class URLs {
     public static final String URL_UPDATE_PROFIL = ROOT_URL + "update_profil";
     public static final String URL_UBAH_FOTO = ROOT_URL + "ubah_foto";
     public static final String URL_DETAIL_PERUSAHAAN = ROOT_URL + "detail_perusahaan";
+    public static final String URL_SLIDER_LIST = ROOT_URL + "slider_list";
 }

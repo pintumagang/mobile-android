@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,7 @@ import java.util.List;
  */
 public class HomeFragment extends Fragment {
 
-    GridView gridView;
+
     private ArrayList<String> id_prodi = new ArrayList<String>();
     private ArrayList<String> logo_prodi = new ArrayList<String>();
     private ArrayList<String> nama_prodi = new ArrayList<String>();
@@ -53,6 +54,8 @@ public class HomeFragment extends Fragment {
     private SliderView sliderView;
     private LinearLayout mLinearLayout;
     private RelativeLayout prodi_if;
+
+    ExpandableHeightGridView gridView;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -65,18 +68,12 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         sliderView = (SliderView) rootView.findViewById(R.id.sliderView);
         mLinearLayout = (LinearLayout) rootView.findViewById(R.id.pagesContainer);
+        getSlider();
+        //setupSlider();
 
-
-
-
-
-        setupSlider();
-
-        gridView = (GridView) rootView.findViewById(R.id.griview);
-
-
+        gridView = (ExpandableHeightGridView)rootView.findViewById(R.id.griview);
         getData();
-
+        gridView.setExpanded(true);
         // Inflate the layout for this fragment
         return rootView;
     }
@@ -98,6 +95,59 @@ public class HomeFragment extends Fragment {
         mIndicator = new SliderIndicator(getActivity(), mLinearLayout, sliderView, R.drawable.indicator_circle);
         mIndicator.setPageCount(fragments.size());
         mIndicator.show();
+    }
+
+    private void getSlider(){
+        //Showing a progress dialog while our app fetches the data from url
+        //final ProgressDialog loading = ProgressDialog.show(getActivity(), "Please wait...","Fetching data...",false,false);
+        sliderView.setDurationScroll(1000);
+        final List<Fragment> fragments = new ArrayList<>();
+
+
+        //Creating a json array request to get the json from our api
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URLs.URL_SLIDER_LIST,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        //Dismissing the progressdialog on response
+                        //loading.dismiss();
+                        for(int i = 0; i<response.length(); i++){
+                            //Creating a json object of the current index
+                            JSONObject obj = null;
+                            try {
+                                //getting json object from current index
+                                obj = response.getJSONObject(i);
+
+                                //getting image url and title from json object
+                                String foto = obj.getString("foto_slider");
+                                fragments.add(FragmentSlider.newInstance(foto));
+                                System.out.println(fragments);
+
+                                //System.out.println(obj.getString("nama_prodi"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        //Displaying our grid
+                        mAdapter = new SliderPagerAdapter(getFragmentManager(), fragments);
+                        sliderView.setAdapter(mAdapter);
+                        mIndicator = new SliderIndicator(getActivity(), mLinearLayout, sliderView, R.drawable.indicator_circle);
+                        mIndicator.setPageCount(fragments.size());
+                        mIndicator.show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+
+        //Creating a request queue
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        //Adding our request to the queue
+        requestQueue.add(jsonArrayRequest);
     }
 
     private void getData(){
@@ -234,27 +284,7 @@ public class HomeFragment extends Fragment {
 
     }
 
-    public class MyGridView  extends GridView {
 
-    public MyGridView(Context context, android.util.AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public MyGridView(Context context) {
-        super(context);
-    }
-
-    public MyGridView(Context context, android.util.AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-    }
-
-    @Override
-    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2,
-                MeasureSpec.AT_MOST);
-        super.onMeasure(widthMeasureSpec, expandSpec);
-    }
-}
 
 
 

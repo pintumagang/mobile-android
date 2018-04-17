@@ -2,6 +2,7 @@ package com.pintumagang.android_app.fragment;
 
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -200,14 +201,14 @@ public class SuntingprofilFragment extends Fragment {
         //final String id_user = String.valueOf(user.getId());
         final String username = user.getUsername();
         final String id_mahasiswa = String.valueOf(mahasiswa.getId());
-
-        System.out.println(id_mahasiswa);
+        final ProgressDialog loading = ProgressDialog.show(getActivity(), "Mohon tunggu...","Mengunggah foto...",false,false);
 
         //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, URLs.URL_UBAH_FOTO,
                 new Response.Listener<NetworkResponse>() {
                     @Override
                     public void onResponse(NetworkResponse response) {
+                        loading.dismiss();
                         try {
                             JSONObject obj = new JSONObject(new String(response.data));
                             //Toast.makeText(getActivity().getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
@@ -329,12 +330,14 @@ public class SuntingprofilFragment extends Fragment {
         }
 
 
+        final ProgressDialog loading = ProgressDialog.show(getActivity(), "Mohon tunggu...","Memperbarui profil...",false,false);
 
         //if everything is fine
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_UPDATE_PROFIL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        loading.dismiss();
                         //progressbar.setVisibility(View.GONE);
                         //progressBar.setVisibility(View.VISIBLE);
                         //setProgressBarIndeterminate(true);

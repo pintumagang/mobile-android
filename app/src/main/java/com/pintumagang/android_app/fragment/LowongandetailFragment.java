@@ -63,16 +63,7 @@ public class LowongandetailFragment extends Fragment {
 
 
 
-        rootView.findViewById(R.id.btn_lamar).setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                LamarFragment lf = new LamarFragment();
-                android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.content, lf);
-                ft.addToBackStack("list");
-                ft.commit();
-            }
-        });
+
 
 
         MobileAds.initialize(getActivity(), "ca-app-pub-3679403662348605/5386502676");
@@ -123,6 +114,21 @@ public class LowongandetailFragment extends Fragment {
                 pf.setArguments(bundle);
                 android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.content, pf);
+                ft.addToBackStack("list");
+                ft.commit();
+            }
+        });
+
+        rootView.findViewById(R.id.btn_lamar).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("id_lowongan", id_lowongan);
+                bundle.putSerializable("nama",lowonganList.getNama_lowongan().toString());
+                LamarFragment lf = new LamarFragment();
+                lf.setArguments(bundle);
+                android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.content, lf);
                 ft.addToBackStack("list");
                 ft.commit();
             }

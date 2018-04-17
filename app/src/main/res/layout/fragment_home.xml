@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -63,22 +63,21 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:text="Cari lowongan berdasarkan program studi"/>
-            <GridView
+            <com.pintumagang.android_app.fragment.ExpandableHeightGridView
                 android:id="@+id/griview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-
+                android:isScrollContainer="false"
                 android:layout_marginRight="10dp"
-                android:columnWidth="100dp"
+                android:columnWidth="90dp"
                 android:scrollbars="none"
                 android:gravity="center"
                 android:horizontalSpacing="10dp"
                 android:numColumns="3"
                 android:layout_below="@+id/textttt"
-                android:stretchMode="columnWidth"
                 android:verticalSpacing="10dp"/>
 
 
@@ -86,5 +85,5 @@
 
 
         </RelativeLayout>
-    </RelativeLayout>
+    </ScrollView>
 
