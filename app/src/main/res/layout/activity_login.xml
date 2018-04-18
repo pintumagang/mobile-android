@@ -6,7 +6,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorTulisan"
+    android:background="@drawable/background1"
     android:padding="16dp">
 
 
@@ -16,7 +16,7 @@
         android:layout_height="100dp"
         android:layout_marginBottom="80dp"
         android:layout_marginTop="78dp"
-        android:tint="@android:color/white"
+        android:tint="?attr/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="Login"
-        android:textColor="@android:color/white"
+        android:textColor="?android:attr/colorAccent"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/username"

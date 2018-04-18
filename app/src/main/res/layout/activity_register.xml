@@ -20,9 +20,9 @@
         app:cardUseCompatPadding="true">
 
         <RelativeLayout
-            android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/background1">
 
             <LinearLayout
                 android:id="@+id/linearLayout1"
