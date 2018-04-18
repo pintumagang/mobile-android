@@ -1,5 +1,6 @@
 package com.pintumagang.android_app;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.content.DialogInterface;
@@ -67,15 +68,14 @@ public class ForgotpasswordActivity extends AppCompatActivity {
             editTextEmailUsername.requestFocus();
             return;
         }
+        final ProgressDialog loading = ProgressDialog.show(this, "Mohon tunggu...","Mengambil data...",false,false);
 
         //if everything is fine
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_FORGOT_PASSWORD,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        progressbar.setVisibility(View.GONE);
-                        //progressBar.setVisibility(View.VISIBLE);
-                        //setProgressBarIndeterminate(true);
+                        loading.dismiss();
 
 
                         try {
