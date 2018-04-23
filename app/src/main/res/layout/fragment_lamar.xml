@@ -1,32 +1,199 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.LamarFragment">
+    android:fitsSystemWindows="true"
+    tools:context="com.pintumagang.android_app.fragment.SuntingprofilFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="249dp"
-        android:layout_marginStart="145dp"
-        android:text="Button" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="206dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:layout_marginBottom="75dp"
+        >
 
-</RelativeLayout>
+        <LinearLayout
+            android:id="@+id/linley2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:layout_alignParentLeft="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Perusahaan"
+                    android:textColor="@color/headings"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/editTextUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="bambang"
+                    android:editable="false"
+                    android:textColor="#000000"
+                    android:background="@color/white"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/grey" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Lowongan"
+                    android:textColor="@color/headings"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/editTextEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:background="@color/white"
+                    android:inputType="textEmailAddress"
+                    android:text="ari@pintumagang.com"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/grey" />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Curriculum Vitae"
+                    android:textColor="@color/headings"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/namacv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="masukkan cv anda"
+                    android:textColor="@color/grey"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Pilih File.."
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:background="@android:color/holo_blue_light"
+                    android:padding="6dp"
+
+                    android:textColor="@android:color/white"
+                    android:textSize="14dp"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Informasi Tambahan"
+                    android:textColor="@color/headings"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/editTextNamabelakang"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="tambah informasi (opsional)"
+                    android:singleLine="false"
+                    android:lines="10"
+                    android:minLines="5"
+                    android:gravity="top|left"
+                    android:maxLines="15"
+                    android:background="@drawable/search_view"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="0"
+                    android:background="@android:color/holo_orange_light"
+                    android:gravity="center"
+                    android:paddingBottom="10dp"
+
+                    android:paddingTop="10dp"
+                    android:text="Kirim CV"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

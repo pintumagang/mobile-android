@@ -199,8 +199,11 @@ public class FavoritFragment extends Fragment {
             holder.textViewNamaLowongan.setText(lowongan.getNama_lowongan());
             holder.textViewNamaPerusahaan.setText(lowongan.getNama_perusahaan());
             holder.textViewLokasi.setText(String.valueOf(lowongan.getLokasi()));
-            holder.textViewWaktuInput.setText(String.valueOf(lowongan.getWaktu_input()+" hari yang lalu"));
-
+            if(lowongan.getWaktu_input().equals("0")){
+                holder.textViewWaktuInput.setText(String.valueOf("Baru hari ini"));
+            }else {
+                holder.textViewWaktuInput.setText(String.valueOf(lowongan.getWaktu_input() + " hari yang lalu"));
+            }
             holder.delete_favorit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
