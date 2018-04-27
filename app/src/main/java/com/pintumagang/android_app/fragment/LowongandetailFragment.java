@@ -27,6 +27,7 @@ import com.pintumagang.android_app.entity.Lowongan;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.pintumagang.android_app.entity.Mahasiswa;
 import com.pintumagang.android_app.entity.User;
 
 import org.json.JSONException;
@@ -41,7 +42,7 @@ import java.util.Map;
 public class LowongandetailFragment extends Fragment {
     Lowongan lowonganList;
     private AdView mAdView;
-    private String id_lowongan,id_perusahaan;
+    private String id_lowongan,id_perusahaan,namaPerusahaan;
 
     public LowongandetailFragment() {
         // Required empty public constructor
@@ -56,7 +57,7 @@ public class LowongandetailFragment extends Fragment {
 
         TextView nama_lowongan = (TextView) rootView.findViewById(R.id.isi_nama_lowongan);
         ImageView imageView = (ImageView) rootView.findViewById(R.id.logo_detail);
-        TextView nama_perusahaan = (TextView) rootView.findViewById(R.id.nama_perusahaan_detail);
+        final TextView nama_perusahaan = (TextView) rootView.findViewById(R.id.nama_perusahaan_detail);
         TextView lokasi = (TextView) rootView.findViewById(R.id.isi_lokasi_lowongan_detail);
         TextView deadline = (TextView) rootView.findViewById(R.id.isi_deadline_lowongan_detail);
         TextView desc = (TextView) rootView.findViewById(R.id.isi_deskripsi_lowongan_detail);
@@ -80,7 +81,7 @@ public class LowongandetailFragment extends Fragment {
                     .load(lowonganList.getLogo())
                     .into(imageView);
             String nama = lowonganList.getNama_lowongan().toString();
-            String namaPerusahaan = lowonganList.getNama_perusahaan().toString();
+            namaPerusahaan = lowonganList.getNama_perusahaan().toString();
             String lokasi_detail = lowonganList.getLokasi().toString();
             String deskripsi = lowonganList.getDeskripsi().toString();
             String deadline_submit = lowonganList.getDeadline_submit();
@@ -122,21 +123,94 @@ public class LowongandetailFragment extends Fragment {
         rootView.findViewById(R.id.btn_lamar).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("id_lowongan", id_lowongan);
-                bundle.putSerializable("nama",lowonganList.getNama_lowongan().toString());
-                LamarFragment lf = new LamarFragment();
-                lf.setArguments(bundle);
-                android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.content, lf);
-                ft.addToBackStack("list");
-                ft.commit();
+                cek_lamar();
+
             }
         });
 
         // Inflate the layout for this fragment
         return rootView;
 
+    }
+
+    private void cek_lamar() {
+        //first getting the values
+        //final String username_email = editTextEmailUsername.getText().toString();
+        final AlertDialog.Builder Alert_builder = new AlertDialog.Builder(getActivity());
+        Mahasiswa mahasiswa = SharedPrefManager.getInstance(getActivity()).getMahasiswa();
+        final String id_mhs = String.valueOf(mahasiswa.getId());
+        final String idlowongan = id_lowongan;
+
+
+        //if everything is fine
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_CEK_LAMAR,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //progressbar.setVisibility(View.GONE);
+                        //progressBar.setVisibility(View.VISIBLE);
+                        //setProgressBarIndeterminate(true);
+
+
+                        try {
+                            //converting response to json object
+                            JSONObject obj = new JSONObject(response);
+                            //org.json.JSONArray message = obj.getJSONArray("message");
+
+                            //if no error in response
+                            if (obj.getBoolean("error")) {
+                                //Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+
+                                Alert_builder.setTitle("Info:");
+                                Alert_builder.setMessage(obj.getString("message"));
+                                //Alert_builder.setIcon(R.drawable.alert);
+                                // adding one button
+                                Alert_builder.setPositiveButton("Ok", new android.content.DialogInterface.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(android.content.DialogInterface dialog, int which) {
+
+                                    }
+                                });
+
+                                Alert_builder.create();
+                                Alert_builder.show();
+
+
+                                //starting the profile activity
+                            } else {
+                                Bundle bundle = new Bundle();
+                                bundle.putSerializable("id_lowongan", id_lowongan);
+                                bundle.putSerializable("nama_lowongan",lowonganList.getNama_lowongan().toString());
+                                bundle.putSerializable("nama_perusahaan",namaPerusahaan);
+                                LamarFragment lf = new LamarFragment();
+                                lf.setArguments(bundle);
+                                android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                ft.replace(R.id.content, lf);
+                                ft.addToBackStack("list");
+                                ft.commit();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity().getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("id_mhs", id_mhs);
+                params.put("id_lowongan", idlowongan);
+                return params;
+            }
+        };
+
+        VolleySingleton.getInstance(getActivity()).addToRequestQueue(stringRequest);
     }
 
     private void simpan_lowongan() {
@@ -146,15 +220,6 @@ public class LowongandetailFragment extends Fragment {
         User user = SharedPrefManager.getInstance(getActivity()).getUser();
         final String id_user = String.valueOf(user.getId());
         final String idlowongan = id_lowongan;
-
-        System.out.println(id_user +" "+ idlowongan);
-        //Displaying Progressbar
-        //validating inputs
-        /*if (TextUtils.isEmpty(username_email)) {
-            editTextEmailUsername.setError("Masukkan Username atau Email anda");
-            editTextEmailUsername.requestFocus();
-            return;
-        }*/
 
         //if everything is fine
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_SIMPAN_LOWONGAN,

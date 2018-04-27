@@ -193,12 +193,9 @@ public class SuntingprofilFragment extends Fragment {
 
     private void uploadBitmap(final Bitmap bitmap) {
 
-        //getting the tag from the edittext
-        //final String tags = editTextTags.getText().toString().trim();
         final android.support.v7.app.AlertDialog.Builder Alert_builder = new android.support.v7.app.AlertDialog.Builder(getActivity());
         User user = SharedPrefManager.getInstance(getActivity()).getUser();
         Mahasiswa mahasiswa =SharedPrefManager.getInstance(getActivity()).getMahasiswa();
-        //final String id_user = String.valueOf(user.getId());
         final String username = user.getUsername();
         final String id_mahasiswa = String.valueOf(mahasiswa.getId());
         final ProgressDialog loading = ProgressDialog.show(getActivity(), "Mohon tunggu...","Mengunggah foto...",false,false);

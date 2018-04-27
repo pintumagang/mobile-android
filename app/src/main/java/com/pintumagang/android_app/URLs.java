@@ -23,4 +23,6 @@ public class URLs {
     public static final String URL_DETAIL_PERUSAHAAN = ROOT_URL + "detail_perusahaan";
     public static final String URL_SLIDER_LIST = ROOT_URL + "slider_list";
     public static final String URL_KIRIM_LAMARAN =ROOT_URL + "kirim_lamaran";
+    public static final String URL_CEK_LAMAR = ROOT_URL + "cek_lamar";
+    public static final String URL_STATUS_LAMAR = ROOT_URL + "status_lamar";
 }

@@ -40,11 +40,11 @@
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/editTextUsername"
+                    android:id="@+id/editTextNamaPerusahaanLamar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="bambang"
+                    android:text="p"
                     android:editable="false"
                     android:textColor="#000000"
                     android:background="@color/white"
@@ -74,13 +74,13 @@
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/editTextEmail"
+                    android:id="@+id/editTextNamaLowonganLamar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:background="@color/white"
-                    android:inputType="textEmailAddress"
-                    android:text="ari@pintumagang.com"
+                    android:text="l"
+                    android:editable="false"
                     android:singleLine="true"
                     android:maxLines="1"
                     android:textColor="#000000"
@@ -151,7 +151,7 @@
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/editTextNamabelakang"
+                    android:id="@+id/editTextInfoTambahan"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:fontFamily="sans-serif-light"

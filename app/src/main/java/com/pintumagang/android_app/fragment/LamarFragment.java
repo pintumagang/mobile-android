@@ -72,7 +72,10 @@ public class LamarFragment extends Fragment {
     public int PDF_REQ_CODE = 1;
     View rootView;
     File file;
-    String PdfNameHolder, PdfPathHolder, PdfID, namafile;
+    byte[] bytes;
+    String fileName,extension;
+    EditText namaperusahaan,namalowongan,infotambahan;
+    String PdfNameHolder, PdfPathHolder, PdfID, namafile,nmlowongan,nmperusahaan,idlowongan;
 
     public LamarFragment() {
         // Required empty public constructor
@@ -87,9 +90,20 @@ public class LamarFragment extends Fragment {
 
         AllowRunTimePermission();
 
+        namaperusahaan = (EditText) rootView.findViewById(R.id.editTextNamaPerusahaanLamar);
+        namalowongan = (EditText) rootView.findViewById(R.id.editTextNamaLowonganLamar);
+        infotambahan = (EditText) rootView.findViewById(R.id.editTextInfoTambahan);
         SelectButton = (TextView) rootView.findViewById(R.id.button);
         UploadButton = (TextView) rootView.findViewById(R.id.button2);
         PdfNameEditText = (TextView) rootView.findViewById(R.id.namacv);
+
+
+        nmperusahaan = (String) getArguments().getSerializable("nama_perusahaan");
+        nmlowongan = (String) getArguments().getSerializable("nama_lowongan");
+        idlowongan = (String) getArguments().getSerializable("id_lowongan");
+        namaperusahaan.setText(nmperusahaan);
+        namalowongan.setText(nmlowongan);
+
 
         SelectButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,7 +126,7 @@ public class LamarFragment extends Fragment {
                     Toast.makeText(getActivity(),"Anda belum memasukkan CV", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    PdfUploadFunction();
+                    kirimLamaran(file);
                 }
             }
         });
@@ -125,6 +139,7 @@ public class LamarFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PDF_REQ_CODE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
             uri = data.getData();
 
 
@@ -132,47 +147,63 @@ public class LamarFragment extends Fragment {
             int nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
             returnCursor.moveToFirst();
             namafile = returnCursor.getString(nameIndex);
-            PdfNameEditText.setText(namafile);
 
-            File file = new File(uri.toString());
-            int size = (int) file.length();
-            byte[] bytes = new byte[size];
             try {
-                BufferedInputStream buf = new BufferedInputStream(new FileInputStream(file));
-                System.out.println(buf);
-                buf.read(bytes, 0, bytes.length);
-                buf.close();
-            } catch (FileNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
+                file = new File(FilePath.getPath(getActivity(),uri));
+                fileName = file.getName();
+                PdfNameEditText.setText(fileName);
+
+                extension = fileName.substring(fileName.lastIndexOf("."));
+
+
+
+
+            } catch (Exception e) {
+                Toast.makeText(getActivity(), "ERROR " + e.getMessage() + "\n" + e.getCause(), Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
+
 
         }
     }
 
-    public byte[] getFileDataFromDrawable(File bitmap) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+    private static byte[] loadFile(File file) throws IOException {
+        InputStream is = new FileInputStream(file);
 
-        return byteArrayOutputStream.toByteArray();
+        long length = file.length();
+        if (length > Integer.MAX_VALUE) {
+            // File is too large
+        }
+        byte[] bytes = new byte[(int)length];
+
+        int offset = 0;
+        int numRead = 0;
+        while (offset < bytes.length
+                && (numRead=is.read(bytes, offset, bytes.length-offset)) >= 0) {
+            offset += numRead;
+        }
+
+        if (offset < bytes.length) {
+            throw new IOException("Could not completely read file "+file.getName());
+        }
+
+        is.close();
+        return bytes;
     }
 
 
 
 
-    private void kirimLamaran() {
+    private void kirimLamaran(final File file) {
 
-        //getting the tag from the edittext
-        //final String tags = editTextTags.getText().toString().trim();
         final android.support.v7.app.AlertDialog.Builder Alert_builder = new android.support.v7.app.AlertDialog.Builder(getActivity());
         User user = SharedPrefManager.getInstance(getActivity()).getUser();
         Mahasiswa mahasiswa =SharedPrefManager.getInstance(getActivity()).getMahasiswa();
-        //final String id_user = String.valueOf(user.getId());
         final String username = user.getUsername();
         final String id_user = String.valueOf(user.getId());
         final String id_mahasiswa = String.valueOf(mahasiswa.getId());
+        final String info_tambahan = infotambahan.getText().toString();
+        System.out.println("info: "+infotambahan.getText().toString());
         final ProgressDialog loading = ProgressDialog.show(getActivity(), "Mohon tunggu...","Mengunggah foto...",false,false);
 
         //our custom volley request
@@ -199,7 +230,7 @@ public class LamarFragment extends Fragment {
                             Alert_builder.create();
                             Alert_builder.show();
 
-                            SharedPrefManager.getInstance(getActivity().getApplicationContext()).ubahFotoProfil(obj.getString("link_foto"));
+                            //SharedPrefManager.getInstance(getActivity().getApplicationContext()).ubahFotoProfil(obj.getString("link_foto"));
 
 
                         } catch (JSONException e) {
@@ -223,10 +254,12 @@ public class LamarFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params1 = new HashMap<>();
-                long imagename = System.currentTimeMillis();
-                String link_foto = "http://pintumagang.jktserver.com/mobile-android/image_mahasiswa/"+imagename+"_"+username + ".png";
+                long cvname = System.currentTimeMillis();
+                String link_cv = "http://pintumagang.jktserver.com/mobile-android/cv_lamaran/"+cvname+"_"+username + ".pdf";
                 params1.put("id_mhs", id_mahasiswa);
-                params1.put("link_foto", link_foto);
+                params1.put("link_cv", link_cv);
+                params1.put("id_lowongan", idlowongan);
+                params1.put("info_tambahan",info_tambahan);
 
                 return params1;
             }
@@ -237,9 +270,13 @@ public class LamarFragment extends Fragment {
             @Override
             protected Map<String, VolleyMultipartRequest.DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
-                long imagename = System.currentTimeMillis();
+                long cvname = System.currentTimeMillis();
 
-                //params.put("foto", new DataPart(imagename +"_"+username + ".pdf", uri));
+                try {
+                    params.put("cv", new DataPart(cvname +"_"+username + ".pdf", loadFile(file)));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
 
                 return params;
@@ -250,65 +287,27 @@ public class LamarFragment extends Fragment {
         Volley.newRequestQueue(getActivity()).add(volleyMultipartRequest);
     }
 
-    public void PdfUploadFunction() {
 
-        PdfNameHolder = PdfNameEditText.getText().toString().trim();
-        PdfPathHolder = FilePath.getPath(getActivity(), uri);
-
-        if (PdfPathHolder == null) {
-
-            Toast.makeText(getActivity(), "Please move your PDF file to internal storage & try again.", Toast.LENGTH_LONG).show();
-
-        } else {
-
-            try {
-
-                PdfID = UUID.randomUUID().toString();
-
-                new MultipartUploadRequest(getActivity(), PdfID, PDF_UPLOAD_HTTP_URL)
-                        .addFileToUpload(PdfPathHolder, "pdf")
-                        .addParameter("name", PdfNameHolder)
-                        .setNotificationConfig(new UploadNotificationConfig())
-                        .setMaxRetries(5)
-                        .startUpload();
-
-            } catch (Exception exception) {
-
-                Toast.makeText(getActivity(), exception.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
 
 
     public void AllowRunTimePermission(){
 
         if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE))
         {
-
             Toast.makeText(getActivity(),"READ_EXTERNAL_STORAGE permission Access Dialog", Toast.LENGTH_LONG).show();
-
         } else {
-
             ActivityCompat.requestPermissions(getActivity(),new String[]{ Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int RC, String per[], int[] Result) {
-
         switch (RC) {
-
             case 1:
-
                 if (Result.length > 0 && Result[0] == PackageManager.PERMISSION_GRANTED) {
-
                     Toast.makeText(getActivity(),"Permission Granted", Toast.LENGTH_LONG).show();
-
                 } else {
-
                     Toast.makeText(getActivity(),"Permission Canceled", Toast.LENGTH_LONG).show();
-
                 }
                 break;
         }
