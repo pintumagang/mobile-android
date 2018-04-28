@@ -2,6 +2,7 @@ package com.pintumagang.android_app.fragment;
 
 
 import android.Manifest;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,6 +14,7 @@ import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -204,7 +206,7 @@ public class LamarFragment extends Fragment {
         final String id_mahasiswa = String.valueOf(mahasiswa.getId());
         final String info_tambahan = infotambahan.getText().toString();
         System.out.println("info: "+infotambahan.getText().toString());
-        final ProgressDialog loading = ProgressDialog.show(getActivity(), "Mohon tunggu...","Mengunggah foto...",false,false);
+        final ProgressDialog loading = ProgressDialog.show(getActivity(), "Mohon tunggu...","Mengirimkan lamaran...",false,false);
 
         //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, URLs.URL_KIRIM_LAMARAN,
@@ -229,6 +231,7 @@ public class LamarFragment extends Fragment {
 
                             Alert_builder.create();
                             Alert_builder.show();
+
 
                             //SharedPrefManager.getInstance(getActivity().getApplicationContext()).ubahFotoProfil(obj.getString("link_foto"));
 

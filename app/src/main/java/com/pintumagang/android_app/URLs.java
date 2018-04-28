@@ -25,4 +25,5 @@ public class URLs {
     public static final String URL_KIRIM_LAMARAN =ROOT_URL + "kirim_lamaran";
     public static final String URL_CEK_LAMAR = ROOT_URL + "cek_lamar";
     public static final String URL_STATUS_LAMAR = ROOT_URL + "status_lamar";
+    public static final String URL_TOKEN = ROOT_URL + "token";
 }

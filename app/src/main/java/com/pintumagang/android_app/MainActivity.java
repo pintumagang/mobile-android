@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.google.android.gms.ads.MobileAds;
 
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.pintumagang.android_app.fragment.*;
 
 public class MainActivity extends AppCompatActivity {
@@ -75,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
         //mTextMessage = (TextView) findViewById(R.id.message);
        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        FirebaseInstanceId.getInstance().getToken();
+
+
     }
 
 }

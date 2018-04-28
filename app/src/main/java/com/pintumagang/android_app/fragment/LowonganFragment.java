@@ -4,6 +4,7 @@ package com.pintumagang.android_app.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
 import android.widget.AdapterView;
 import android.widget.Filter;
@@ -61,6 +62,7 @@ public class LowonganFragment extends Fragment{
     private AdView mAdView;
     public RecyclerView recyclerView;
     private String prodi;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
 
@@ -77,6 +79,11 @@ public class LowonganFragment extends Fragment{
 
         MobileAds.initialize(getActivity(), "ca-app-pub-3679403662348605/5386502676");
         mAdView = (AdView) rootView.findViewById(R.id.adView);
+
+
+
+
+
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         prodi = (String) getArguments().getSerializable("prodiValue");
@@ -115,7 +122,15 @@ public class LowonganFragment extends Fragment{
 
         //initializing the productlist
 
+        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                lowonganList.clear();
+                loadLowongan();
 
+            }
+        });
 
         // Inflate the layout for this fragment
 
@@ -198,6 +213,7 @@ public class LowonganFragment extends Fragment{
                             LowonganAdapter adapter = new LowonganAdapter(getActivity(), lowonganList);
                             recyclerView.setAdapter(adapter);
                             progressBar.setVisibility(rootView.GONE);
+                            swipeRefreshLayout.setRefreshing(false);
 
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "684886651746",
+    "firebase_url": "https://mobile-android-9986e.firebaseio.com",
+    "project_id": "mobile-android-9986e",
+    "storage_bucket": "mobile-android-9986e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684886651746:android:af70131df900d4f2",
+        "android_client_info": {
+          "package_name": "com.pintumagang.android_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "684886651746-lgntv2fi0ed7vdssmn0vncnst4ug1tlh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pintumagang.android_app",
+            "certificate_hash": "2c0c87e2cde457710ea8961783c35504ee497bfd"
+          }
+        },
+        {
+          "client_id": "684886651746-rpg8im8t69a9tv66elt9a8plbuns6nje.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHUJN0_IWhUWpzt8cOgPn3owyRRF-0CPI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "684886651746-rpg8im8t69a9tv66elt9a8plbuns6nje.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

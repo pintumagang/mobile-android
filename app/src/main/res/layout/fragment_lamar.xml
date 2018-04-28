@@ -123,8 +123,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Pilih File.."
-                    android:maxLines="1"
-                    android:singleLine="true"
+                    android:maxLines="2"
+                    android:singleLine="false"
                     android:background="@android:color/holo_blue_light"
                     android:padding="6dp"
 
