@@ -16,6 +16,16 @@ public class FcmMessageService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
         //onMessageReceived will be called when ever you receive new message from server.. (app in background and foreground )
         showNotification(remoteMessage.getData().get("message"));
+
+        if (remoteMessage.getData().size() > 0) {
+            Log.d("aa", "Message data payload: " + remoteMessage.getData());
+        }
+
+// Check if message contains a notification payload.
+        if (remoteMessage.getNotification() != null) {
+            Log.d("aa", "Message Notification Body: " + remoteMessage.getNotification().getBody());
+        }
+
     }
 
     private void showNotification(String message){

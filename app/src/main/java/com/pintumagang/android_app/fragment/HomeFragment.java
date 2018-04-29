@@ -69,12 +69,13 @@ public class HomeFragment extends Fragment {
         sliderView = (SliderView) rootView.findViewById(R.id.sliderView);
         mLinearLayout = (LinearLayout) rootView.findViewById(R.id.pagesContainer);
         getSlider();
-        //setupSlider();
 
         gridView = (ExpandableHeightGridView)rootView.findViewById(R.id.griview);
         getData();
         gridView.setExpanded(true);
-        // Inflate the layout for this fragment
+
+
+
         return rootView;
     }
 
@@ -121,7 +122,7 @@ public class HomeFragment extends Fragment {
                                 //getting image url and title from json object
                                 String foto = obj.getString("foto_slider");
                                 fragments.add(FragmentSlider.newInstance(foto));
-                                System.out.println(fragments);
+
 
                                 //System.out.println(obj.getString("nama_prodi"));
                             } catch (JSONException e) {

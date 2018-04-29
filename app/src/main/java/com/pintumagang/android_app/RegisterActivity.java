@@ -148,8 +148,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 Mahasiswa mahasiswa= new Mahasiswa(
                                         mahasiswaJson.getInt("id_mhs"),
                                         mahasiswaJson.getInt("id_user"),
-                                        mahasiswaJson.getString("namaDepan"),
-                                        mahasiswaJson.getString("namaBelakang"),
+                                        mahasiswaJson.getString("nama_depan"),
+                                        mahasiswaJson.getString("nama_belakang"),
                                         mahasiswaJson.getString("foto"),
                                         mahasiswaJson.getString("perguruan_tinggi"),
                                         mahasiswaJson.getString("hp"),

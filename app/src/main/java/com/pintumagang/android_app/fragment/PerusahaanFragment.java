@@ -36,7 +36,7 @@ public class PerusahaanFragment extends Fragment {
     View rootView;
     String id_perusahaan;
     ImageView imgPerusahaan;
-    TextView textViewNamaPerusahaan,textViewKotaProvinsi,textViewDeskripsiPerusahaan,textViewJenisPerusahaan,textViewEmail,textViewTelepon,textViewWebsite;
+    TextView textViewNamaPerusahaan,textViewKotaProvinsi,textViewDeskripsiPerusahaan,textViewJenisPerusahaan,textViewEmail,textViewTelepon,textViewWebsite,btn_daftar_lowongan_perusahaan;
 
 
     public PerusahaanFragment() {
@@ -59,6 +59,21 @@ public class PerusahaanFragment extends Fragment {
         textViewEmail = (TextView) rootView.findViewById(R.id.textViewEmail);
         textViewTelepon = (TextView) rootView.findViewById(R.id.textViewTelepon);
         textViewWebsite = (TextView) rootView.findViewById(R.id.textViewWebsite);
+        btn_daftar_lowongan_perusahaan = (TextView) rootView.findViewById(R.id.btn_daftar_lowongan_perusahaan);
+
+        rootView.findViewById(R.id.btn_daftar_lowongan_perusahaan).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("id_perusahaan", id_perusahaan);
+                LowonganperusahaanFragment lpf = new LowonganperusahaanFragment();
+                lpf.setArguments(bundle);
+                android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.content, lpf);
+                ft.addToBackStack("list");
+                ft.commit();
+            }
+        });
 
         get_detail_perusahaan();
 
@@ -127,7 +142,6 @@ public class PerusahaanFragment extends Fragment {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("id_perusahaan", idperusahaan);
-                System.out.println(idperusahaan);
                 return params;
             }
         };

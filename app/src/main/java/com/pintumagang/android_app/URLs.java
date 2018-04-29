@@ -8,10 +8,10 @@ package com.pintumagang.android_app;
 public class URLs {
     private static final String ROOT_URL = "http://pintumagang.jktserver.com/mobile-android/Api.php?apicall=";
 
-
     public static final String URL_REGISTER = ROOT_URL + "signup";
     public static final String URL_LOGIN= ROOT_URL + "login";
     public static final String URL_LOWONGAN_LIST= ROOT_URL + "lowongan_list";
+    public static final String URL_LOWONGAN_PERUSAHAN_LIST = ROOT_URL + "lowongan_perusahaan_list";
     public static final String URL_PRODI_LIST= ROOT_URL + "prodi_list";
     public static final String URL_FORGOT_PASSWORD = ROOT_URL + "forgot_password";
     public static final String URL_SIMPAN_LOWONGAN = ROOT_URL + "simpan_lowongan";

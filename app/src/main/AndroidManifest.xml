@@ -64,6 +64,7 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+        <service android:exported="false" android:name=".DeleteTokenService" />
 
         <activity android:name=".entity.Notifikasi"></activity>
     </application>
