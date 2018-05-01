@@ -17,7 +17,6 @@ public class DBManager {
         this.mContext = mContext;
         this.sqlDbCreateTable = sqlDbCreateTable;
         this.mOpener = new OpenHelper(mContext, dbName, null, DB_VERSION);
-        Log.e("sqlDbCreateTable",sqlDbCreateTable);
     }
 
     private class OpenHelper extends SQLiteOpenHelper {
@@ -27,7 +26,6 @@ public class DBManager {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            Log.e("onCreate","onCreate 시작");
             db.execSQL(sqlDbCreateTable);
         }
 
@@ -39,7 +37,6 @@ public class DBManager {
 
     public SQLiteDatabase dbOpen() {
         this.mDbController = mOpener.getWritableDatabase();
-        Log.e("dbOpen","dbOpen 완료");
         return mDbController;
     }
 

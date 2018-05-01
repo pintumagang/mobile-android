@@ -81,7 +81,7 @@
         android:inputType="textPassword"
         android:drawablePadding="7dp"
         android:padding="8dp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textColorHint="@color/colorTulisan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
