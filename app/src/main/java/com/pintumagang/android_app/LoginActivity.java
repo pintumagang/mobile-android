@@ -153,7 +153,7 @@ public class LoginActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.link_sign_up:
                 intent = new Intent(this, RegisterActivity.class);
-
+                finish();
                 break;
             case R.id.link_forgotpassword:
                 intent = new Intent(this, ForgotpasswordActivity.class);

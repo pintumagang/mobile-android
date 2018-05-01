@@ -1,155 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background2"
-    android:padding="16dp">
+    >
 
+    <RelativeLayout
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="80dp"
-        android:layout_marginTop="78dp"
-        android:tint="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/username"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.688"
-        app:srcCompat="@drawable/ic_pintumagang" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Login"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/username"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/username"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:drawableLeft="@drawable/ic_person_black_24dp"
-        android:drawablePadding="12dp"
-        android:drawableTint="@color/white"
-        android:ems="10"
-        android:hint="Username"
+        android:layout_height="match_parent"
+        >
 
-        android:singleLine="true"
+        <RelativeLayout
+            android:id="@+id/rellay1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/intern2"
+            android:paddingBottom="10dp">
 
-        android:padding="10dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="@color/colorTulisan"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.352" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:tint="@android:color/white"
+                app:srcCompat="@drawable/ic_pintumagang"
+                android:padding="3dp"
+                android:scaleType="centerInside"
+                />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#f9d7db"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="245dp"
-        app:layout_constraintBottom_toBottomOf="@id/username"
-        app:layout_constraintEnd_toEndOf="@id/username"
-        app:layout_constraintStart_toStartOf="@id/username"
-        app:layout_constraintTop_toBottomOf="@id/username"
-        />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@android:color/transparent"
-        android:drawableLeft="@android:drawable/ic_lock_lock"
-        android:drawableTint="@color/white"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:drawablePadding="7dp"
-        android:padding="8dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@color/colorTulisan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#f9d7db"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="195dp"
-        app:layout_constraintBottom_toBottomOf="@id/password"
-        app:layout_constraintEnd_toEndOf="@id/password"
-        app:layout_constraintStart_toStartOf="@id/password"
-        app:layout_constraintTop_toBottomOf="@id/password"
-        />
-
-    <Button
-        android:id="@+id/link_signin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/background_login"
-        android:text="Sign In"
-        android:textColor="@color/colorTulisan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
-
-    <TextView
-        android:id="@+id/link_forgotpassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="15dp"
-        android:clickable="true"
-        android:onClick="click_link"
-        android:text="Lupa Password?"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/link_signin" />
+            <TextView
+                android:id="@+id/Login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="14dp"
+                android:fontFamily="sans-serif-light"
+                android:text="LOGIN"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/link_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:onClick="click_link"
+                android:text="Buat Akun Baru"
+                android:drawableLeft="@drawable/ic_account_box_black_24dp"
+                android:drawableTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                />
 
-        android:layout_marginBottom="16dp"
+        </RelativeLayout>
 
-        android:text="Belum mempunyai akun? "
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintStart_toStartOf="parent" />
+        <LinearLayout
+            android:id="@+id/linley1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/rellay1"
+            android:background="@android:color/darker_gray"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
 
-    <TextView
-        android:id="@+id/link_sign_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:onClick="click_link"
-        android:text="Daftar"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@android:color/transparent"
+                    android:drawableRight="@drawable/ic_person_black_24dp"
+                    android:drawableTint="@color/editTextBG"
+                    android:hint="Username"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorTulisan"
+                    android:textColorHint="@color/colorTulisan"
+                    android:fontFamily="sans-serif-light"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/grey" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@android:color/transparent"
+                    android:drawableRight="@android:drawable/ic_lock_lock"
+                    android:drawableTint="@color/editTextBG"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:drawablePadding="7dp"
+                    android:padding="8dp"
+                    android:textColor="@color/colorTulisan"
+                    android:textColorHint="@color/colorTulisan"
+                    android:fontFamily="sans-serif-light"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/username" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/grey" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/link_signin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0"
+                android:background="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="SIGN IN"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/link_forgotpassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="130dp"
+                android:layout_marginRight="120dp"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:clickable="true"
+                android:onClick="click_link"
+                android:text="Lupa Password?"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/link_signin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/About"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linley1"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingBottom="15dp"
+            android:layout_alignParentBottom="true"
+            android:paddingTop="15dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="Follow kami"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="0dp"
+                android:background="@color/grey" />
+
+            <ImageView
+                android:id="@+id/facebook"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="2dp"
+                android:layout_centerHorizontal="true"
+                android:tint="@android:color/holo_blue_dark"
+                app:srcCompat="@drawable/ic_facebook"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                />
+
+        </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+
+
+    </RelativeLayout>
+
+</ScrollView>
