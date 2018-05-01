@@ -248,8 +248,8 @@
                 android:layout_below="@+id/relativeLayout5"
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif"
-                android:text="I agree to the Terms of Service"
-                android:textColor="@color/textColor" />
+                android:text="Saya setuju dengan ketentuan layanan"
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/button"
@@ -274,9 +274,11 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/transparent"
                 android:fontFamily="sans-serif"
+                android:clickable="true"
+                android:onClick="click_link"
                 android:text="Sudah mempunyai akun? Masuk"
                 android:textAllCaps="false"
-                android:textColor="@color/textColor"
+                android:textColor="@color/white"
                 android:textSize="13sp" />
 
 

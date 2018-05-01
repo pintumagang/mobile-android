@@ -37,10 +37,8 @@
         <activity
             android:name=".RegisterActivity"
             android:label="Register Akun"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pintumagang.android_app.LoginActivity" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.LoginStyle">
         </activity>
         <activity
             android:name=".ForgotpasswordActivity"

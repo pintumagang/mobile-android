@@ -8,31 +8,27 @@ import com.pintumagang.android_app.database.FcmPushDBSqlData;
 import com.pintumagang.android_app.entity.FcmPushInfo;
 
 public class NotifikasiService {
+    private int id_user;
     private String title = "";
     private String message = "";
-    private String body = "";
     private Context mContext;
 
-    public NotifikasiService(String title, String message, String body) {
+    public NotifikasiService(Context mContext,int id_user,String title, String message) {
+        this.mContext = mContext;
+        this.id_user = id_user;
         if(title != null) this.title = title;
         if(message != null) this.message = message;
-        if(body != null) this.body = body;
     }
 
-    public void notificationDbInsert() {
+    public void notifikasiDbInsert() {
         Log.e("notification Title", title);
         Log.e("notification Message", message);
-        Log.e("notification Body", body);
         FcmPushInfo infoData = null;
-        //try {
-        infoData = new FcmPushInfo(1, title, body, null);
 
+        infoData = new FcmPushInfo(1, id_user, title, message, null);
         FcmPushDao pushDao = new FcmPushDao(mContext);
-        pushDao.insertDao(FcmPushDBSqlData.SQL_DB_INSERT_DATA, infoData);
 
-        //}catch(Exception e){
-        //    e.printStackTrace();
-        //}
+        pushDao.insertDao(FcmPushDBSqlData.SQL_DB_INSERT_DATA, infoData);
 
     }
 }

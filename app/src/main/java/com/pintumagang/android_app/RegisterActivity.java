@@ -62,6 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             case R.id.link_sign_in:
                 intent = new Intent(this, LoginActivity.class);
+                finish();
 
                 break;
 

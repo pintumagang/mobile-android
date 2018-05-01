@@ -17,14 +17,12 @@ public class FcmPushDao {
 
     public FcmPushDao(Context context) {
         dbMng = new DBManager(context, FcmPushDBSqlData.SQL_DB_CREATE_TABLE, "db_push.db");
-        Log.e("FcmPush 생성자", FcmPushDBSqlData.SQL_DB_CREATE_TABLE);
         this.dbController = dbMng.dbOpen();
 
     }
 
     public void insertDao(String sql, FcmPushInfo info) {
-        String[] sqlData = info.getFcmPushInfoArray();
-        Log.e("FcmPush insert query", sql);
+        String[] sqlData = info.insertPushInfoArray();
         this.dbController.execSQL(sql, sqlData);
         dbMng.dbClose();
     }
@@ -32,7 +30,6 @@ public class FcmPushDao {
     // info 해당 position Data 삭제
     public void deleteDao(String sql, int no) {
         String[] sqlData = {Integer.toString(no)};
-        Log.e("FcmPush delete query", sql);
         this.dbController.execSQL(sql, sqlData);
         dbMng.dbClose();
     }
@@ -40,13 +37,13 @@ public class FcmPushDao {
     public void selectAllDao(String sql, ArrayList<FcmPushInfo> pushList) {
         Cursor results = this.dbController.rawQuery(sql, null);
         results.moveToFirst();
-        Log.e("FcmPush select query", sql);
         while (!results.isAfterLast()) {
             FcmPushInfo info = new FcmPushInfo(
                     results.getInt(0),
-                    results.getString(1),
+                    results.getInt(1),
                     results.getString(2),
-                    results.getString(3)
+                    results.getString(3),
+                    results.getString(4)
             );
             pushList.add(info);
             results.moveToNext();
