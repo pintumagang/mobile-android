@@ -112,6 +112,14 @@ public class SuntingprofilFragment extends Fragment {
             }
         });
 
+        imgUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i, 100);
+            }
+        });
+
 
 
         User user = SharedPrefManager.getInstance(getActivity()).getUser();

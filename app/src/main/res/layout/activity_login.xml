@@ -5,106 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background2"
-<<<<<<< HEAD
     >
 
     <RelativeLayout
 
-=======
-    android:padding="16dp">
-
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="80dp"
-        android:layout_marginTop="78dp"
-        android:tint="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/username"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.688"
-        app:srcCompat="@drawable/ic_pintumagang" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Login"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/username"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:drawableLeft="@drawable/ic_person_black_24dp"
-        android:drawablePadding="12dp"
-        android:drawableTint="@color/white"
-        android:ems="10"
-        android:hint="Username"
-
-        android:singleLine="true"
-
-        android:padding="10dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="@color/colorTulisan"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.352" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#f9d7db"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="245dp"
-        app:layout_constraintBottom_toBottomOf="@id/username"
-        app:layout_constraintEnd_toEndOf="@id/username"
-        app:layout_constraintStart_toStartOf="@id/username"
-        app:layout_constraintTop_toBottomOf="@id/username"
-        />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@android:color/transparent"
-        android:drawableLeft="@android:drawable/ic_lock_lock"
-        android:drawableTint="@color/white"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:drawablePadding="7dp"
-        android:padding="8dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="@color/colorTulisan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#f9d7db"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="195dp"
-        app:layout_constraintBottom_toBottomOf="@id/password"
-        app:layout_constraintEnd_toEndOf="@id/password"
-        app:layout_constraintStart_toStartOf="@id/password"
-        app:layout_constraintTop_toBottomOf="@id/password"
-        />
-
-    <Button
-        android:id="@+id/link_signin"
->>>>>>> 7974119f0e5f3a2f9d689a83a3ba3061aeb82b6d
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
