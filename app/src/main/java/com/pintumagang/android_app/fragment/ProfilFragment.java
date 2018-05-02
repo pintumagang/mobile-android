@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -26,6 +27,7 @@ public class ProfilFragment extends Fragment {
 
     TextView textViewId, textViewUsername, textViewEmail, textViewNama, textViewPerguruanTinggi,textViewHp,textViewLinkedin;
     ImageView imgUser;
+    LinearLayout tentanPintuMagang;
     //rofilFragment context = this;
     public ProfilFragment() {
         // Required empty public constructor
@@ -51,6 +53,7 @@ public class ProfilFragment extends Fragment {
         textViewPerguruanTinggi = (TextView)view.findViewById(R.id.textViewPT);
         textViewHp = (TextView)view.findViewById(R.id.textViewHp);
         textViewLinkedin = (TextView)view.findViewById(R.id.textViewLinkedin);
+        tentanPintuMagang = (LinearLayout)view.findViewById(R.id.buttonTentang);
 
 
         //getting the current user
@@ -106,6 +109,13 @@ public class ProfilFragment extends Fragment {
                 ft.replace(R.id.content,slf);
                 ft.addToBackStack("list");
                 ft.commit();
+            }
+        });
+
+        view.findViewById(R.id.buttonTentang).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
             }
         });
 

@@ -38,8 +38,7 @@
             android:name=".RegisterActivity"
             android:label="Register Akun"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.LoginStyle">
-        </activity>
+            android:theme="@style/AppTheme.LoginStyle"></activity>
         <activity
             android:name=".ForgotpasswordActivity"
             android:label="Forgot Password"
@@ -62,9 +61,12 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service android:exported="false" android:name=".DeleteTokenService" />
+        <service
+            android:name=".DeleteTokenService"
+            android:exported="false" />
 
-        <activity android:name=".entity.Notifikasi"></activity>
+        <activity android:name=".entity.Notifikasi" />
+        <activity android:name=".fragment.AboutActivity"></activity>
     </application>
 
 </manifest>
