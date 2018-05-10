@@ -52,7 +52,6 @@ public class NotifikasiFragment extends Fragment {
         pushList.clear();
         getFcmPushDbData(pushList,id_user);
 
-        // custom adapter 적용하여 view 에 적용
         pushAdapter = new FcmPuchAdapter(getActivity().getApplicationContext(), R.layout.fcm_item, pushList);
         pushListView = (ListView) rootView.findViewById(R.id.recyclerViewNotifikasi);
         pushListView.setAdapter(pushAdapter);
@@ -93,7 +92,6 @@ public class NotifikasiFragment extends Fragment {
 
             if(v == null) {
                 mViewHolder = new ViewHolder();
-                // 어댑터 템플릿 view 객체화
                 v = mInflater.inflate(R.layout.fcm_item, null);
                 mViewHolder.title = (TextView) v.findViewById(R.id.textViewTitleNotifikasi);
                 mViewHolder.message = (TextView) v.findViewById(R.id.textViewMessageNotifikasi);

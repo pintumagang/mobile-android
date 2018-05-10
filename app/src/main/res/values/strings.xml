@@ -11,4 +11,5 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="edittext_hint_filter_lowongan"><font size="15">Filter Lowongan, Perusahaan, Lokasi</font></string>
+
 </resources>

@@ -115,7 +115,8 @@ public class ProfilFragment extends Fragment {
         view.findViewById(R.id.buttonTentang).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent intent = new Intent(getActivity(), AboutActivity.class);
+                getActivity().startActivity(intent);
             }
         });
 
