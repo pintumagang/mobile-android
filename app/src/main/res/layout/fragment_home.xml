@@ -8,7 +8,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_main"
-        tools:context=".MainActivity"
+        tools:context=".activity.MainActivity"
 
     android:layout_marginBottom="50dp">
 
@@ -28,7 +28,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.pintumagang.android_app._sliders.SliderView
+                    <com.pintumagang.android_app.sliders.SliderView
                         android:id="@+id/sliderView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />

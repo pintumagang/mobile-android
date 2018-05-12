@@ -1,4 +1,4 @@
-package com.pintumagang.android_app;
+package com.pintumagang.android_app.config;
 
 import android.content.ContentUris;
 import android.content.Context;

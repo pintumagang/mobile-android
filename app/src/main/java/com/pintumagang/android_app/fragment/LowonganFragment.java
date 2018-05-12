@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
-import android.widget.AdapterView;
-import android.widget.Filter;
 import android.widget.ImageView;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,9 +15,7 @@ import android.view.ViewGroup;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.EditText;
-import android.widget.Filterable;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,7 +42,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.pintumagang.android_app.R;
 import com.pintumagang.android_app.entity.Lowongan;
 
-import com.pintumagang.android_app.URLs;
+import com.pintumagang.android_app.config.URLs;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -87,6 +83,7 @@ public class LowonganFragment extends Fragment{
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         prodi = (String) getArguments().getSerializable("prodiValue");
+
 
 
         lowonganList = new ArrayList<Lowongan>();

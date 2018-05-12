@@ -32,10 +32,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.pintumagang.android_app.R;
-import com.pintumagang.android_app.SharedPrefManager;
-import com.pintumagang.android_app.URLs;
-import com.pintumagang.android_app.VolleyMultipartRequest;
-import com.pintumagang.android_app.VolleySingleton;
+import com.pintumagang.android_app.config.SharedPrefManager;
+import com.pintumagang.android_app.config.URLs;
+import com.pintumagang.android_app.volley.VolleyMultipartRequest;
+import com.pintumagang.android_app.volley.VolleySingleton;
 import com.pintumagang.android_app.entity.Mahasiswa;
 import com.pintumagang.android_app.entity.User;
 
@@ -44,7 +44,6 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 

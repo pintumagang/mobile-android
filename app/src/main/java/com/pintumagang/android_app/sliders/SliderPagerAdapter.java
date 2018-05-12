@@ -1,4 +1,4 @@
-package com.pintumagang.android_app._sliders;
+package com.pintumagang.android_app.sliders;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

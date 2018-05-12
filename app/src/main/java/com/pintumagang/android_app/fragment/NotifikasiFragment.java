@@ -6,7 +6,6 @@ android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.pintumagang.android_app.R;
-import com.pintumagang.android_app.SharedPrefManager;
+import com.pintumagang.android_app.config.SharedPrefManager;
 import com.pintumagang.android_app.dao.FcmPushDao;
-import com.pintumagang.android_app.database.FcmPushDBSqlData;
 import com.pintumagang.android_app.entity.FcmPushInfo;
 import com.pintumagang.android_app.entity.User;
 

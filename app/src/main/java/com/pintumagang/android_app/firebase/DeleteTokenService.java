@@ -1,23 +1,15 @@
-package com.pintumagang.android_app;
+package com.pintumagang.android_app.firebase;
 
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.pintumagang.android_app.config.SharedPrefManager;
+import com.pintumagang.android_app.config.URLs;
 import com.pintumagang.android_app.entity.User;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;

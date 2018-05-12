@@ -1,4 +1,4 @@
-package com.pintumagang.android_app;
+package com.pintumagang.android_app.firebase;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -12,6 +12,9 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.pintumagang.android_app.R;
+import com.pintumagang.android_app.config.SharedPrefManager;
+import com.pintumagang.android_app.activity.MainActivity;
 import com.pintumagang.android_app.entity.User;
 import com.pintumagang.android_app.fragment.NotifikasiService;
 

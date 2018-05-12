@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,16 +22,14 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.pintumagang.android_app.MainActivity;
 import com.pintumagang.android_app.R;
-import com.pintumagang.android_app.SharedPrefManager;
-import com.pintumagang.android_app.URLs;
-import com.pintumagang.android_app.VolleySingleton;
+import com.pintumagang.android_app.config.SharedPrefManager;
+import com.pintumagang.android_app.config.URLs;
+import com.pintumagang.android_app.volley.VolleySingleton;
 import com.pintumagang.android_app.entity.Lowongan;
 import com.pintumagang.android_app.entity.User;
 

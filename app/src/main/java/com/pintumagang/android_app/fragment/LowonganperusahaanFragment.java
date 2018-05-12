@@ -28,7 +28,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.pintumagang.android_app.R;
-import com.pintumagang.android_app.URLs;
+import com.pintumagang.android_app.config.URLs;
 import com.pintumagang.android_app.entity.Lowongan;
 
 import org.json.JSONArray;

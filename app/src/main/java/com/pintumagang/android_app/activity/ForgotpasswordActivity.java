@@ -1,9 +1,7 @@
-package com.pintumagang.android_app;
+package com.pintumagang.android_app.activity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,8 +15,10 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.pintumagang.android_app.entity.Mahasiswa;
-import com.pintumagang.android_app.entity.User;
+import com.pintumagang.android_app.R;
+import com.pintumagang.android_app.config.URLs;
+import com.pintumagang.android_app.volley.VolleySingleton;
+
 import android.widget.ProgressBar;
 
 import org.json.JSONException;

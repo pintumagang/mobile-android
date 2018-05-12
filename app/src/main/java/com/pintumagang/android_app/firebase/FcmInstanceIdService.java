@@ -1,8 +1,5 @@
-package com.pintumagang.android_app;
+package com.pintumagang.android_app.firebase;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -11,8 +8,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
-import com.pintumagang.android_app.entity.Mahasiswa;
+import com.pintumagang.android_app.config.SharedPrefManager;
+import com.pintumagang.android_app.config.URLs;
 import com.pintumagang.android_app.entity.User;
+import com.pintumagang.android_app.volley.VolleySingleton;
 
 import org.json.JSONException;
 import org.json.JSONObject;

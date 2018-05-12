@@ -1,4 +1,4 @@
-package com.pintumagang.android_app._sliders;
+package com.pintumagang.android_app.sliders;
 
 import android.content.Context;
 import android.content.res.Resources;

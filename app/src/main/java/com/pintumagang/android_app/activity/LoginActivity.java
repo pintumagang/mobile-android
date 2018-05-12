@@ -1,26 +1,29 @@
-package com.pintumagang.android_app;
+package com.pintumagang.android_app.activity;
 
 import android.content.Intent;
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.pintumagang.android_app.R;
+import com.pintumagang.android_app.config.SharedPrefManager;
+import com.pintumagang.android_app.config.URLs;
+import com.pintumagang.android_app.volley.VolleySingleton;
 import com.pintumagang.android_app.entity.Mahasiswa;
 import com.pintumagang.android_app.entity.User;
 import java.util.HashMap;
@@ -31,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextUsername;
     private EditText editTextPassword;
     private Button buttonLogin;
+    private ImageView twitter, facebook, instagram;
     private boolean loggedIn = false;
 
     @Override
@@ -46,6 +50,34 @@ public class LoginActivity extends AppCompatActivity {
         //buttonLogin = (Button)findViewById(R.id.link_signin);
         editTextUsername = (EditText)findViewById(R.id.username);
         editTextPassword = (EditText)findViewById(R.id.password);
+
+        findViewById(R.id.facebook).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent fb = new Intent(android.content.Intent.ACTION_VIEW);
+                fb.setData(Uri.parse("http://www.facebook.com/pintumagang"));
+                startActivity(fb);
+            }
+        });
+
+        findViewById(R.id.twitter).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent twitter = new Intent(android.content.Intent.ACTION_VIEW);
+                twitter.setData(Uri.parse("http://www.twitter.com/pintumagang"));
+                startActivity(twitter);
+            }
+        });
+
+        findViewById(R.id.instagram).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ig = new Intent(android.content.Intent.ACTION_VIEW);
+                ig.setData(Uri.parse("http://www.instagram.com/pintumagang"));
+                startActivity(ig);
+            }
+        });
 
         findViewById(R.id.link_signin).setOnClickListener(new View.OnClickListener() {
             @Override

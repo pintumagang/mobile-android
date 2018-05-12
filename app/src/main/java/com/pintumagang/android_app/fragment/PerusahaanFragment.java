@@ -18,9 +18,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.pintumagang.android_app.R;
-import com.pintumagang.android_app.SharedPrefManager;
-import com.pintumagang.android_app.URLs;
-import com.pintumagang.android_app.VolleySingleton;
+import com.pintumagang.android_app.config.SharedPrefManager;
+import com.pintumagang.android_app.config.URLs;
+import com.pintumagang.android_app.volley.VolleySingleton;
 import com.pintumagang.android_app.entity.User;
 
 import org.json.JSONException;

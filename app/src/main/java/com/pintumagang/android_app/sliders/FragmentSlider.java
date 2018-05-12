@@ -1,7 +1,6 @@
-package com.pintumagang.android_app._sliders;
+package com.pintumagang.android_app.sliders;
 
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;

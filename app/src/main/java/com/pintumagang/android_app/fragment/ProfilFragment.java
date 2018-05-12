@@ -1,6 +1,5 @@
 package com.pintumagang.android_app.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,7 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.pintumagang.android_app.*;
+import com.pintumagang.android_app.activity.AboutActivity;
+import com.pintumagang.android_app.activity.LoginActivity;
+import com.pintumagang.android_app.config.SharedPrefManager;
 import com.pintumagang.android_app.entity.Mahasiswa;
 import com.pintumagang.android_app.entity.User;
 

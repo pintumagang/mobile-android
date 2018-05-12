@@ -1,10 +1,11 @@
-package com.pintumagang.android_app;
+package com.pintumagang.android_app.config;
 
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.pintumagang.android_app.activity.LoginActivity;
 import com.pintumagang.android_app.entity.Mahasiswa;
 import com.pintumagang.android_app.entity.User;
 

@@ -1,4 +1,4 @@
-package com.pintumagang.android_app;
+package com.pintumagang.android_app.volley;
 
 import android.content.Context;
 import android.graphics.Bitmap;

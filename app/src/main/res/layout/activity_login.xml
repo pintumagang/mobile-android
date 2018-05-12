@@ -94,10 +94,12 @@
                     android:drawableRight="@drawable/ic_person_black_24dp"
                     android:drawableTint="@color/editTextBG"
                     android:hint="Username"
+
                     android:padding="10dp"
                     android:singleLine="true"
-                    android:textColor="@color/colorTulisan"
-                    android:textColorHint="@color/colorTulisan"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textColorHint="@color/white"
                     android:fontFamily="sans-serif-light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -133,7 +135,7 @@
                     android:drawablePadding="7dp"
                     android:padding="8dp"
                     android:textColor="@color/colorTulisan"
-                    android:textColorHint="@color/colorTulisan"
+                    android:textColorHint="@color/white"
                     android:fontFamily="sans-serif-light"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -198,7 +200,7 @@
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:text="Follow kami"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@android:color/holo_blue_dark"
                 android:textSize="14dp" />
 
             <View
@@ -207,9 +209,13 @@
                 android:layout_marginLeft="30dp"
 
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="0dp"
-                android:background="@color/grey" />
-
+                android:layout_marginTop="4dp"
+                android:background="@android:color/holo_blue_dark" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
             <ImageView
                 android:id="@+id/facebook"
                 android:layout_width="50dp"
@@ -217,11 +223,41 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="2dp"
                 android:layout_centerHorizontal="true"
+                android:background="@drawable/circle_button"
                 android:tint="@android:color/holo_blue_dark"
                 app:srcCompat="@drawable/ic_facebook"
                 android:padding="10dp"
                 android:scaleType="centerInside"
                 />
+            <ImageView
+                android:id="@+id/twitter"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="2dp"
+                android:layout_centerHorizontal="true"
+                android:layout_toRightOf="@id/facebook"
+                android:background="@drawable/circle_button"
+                android:tint="@android:color/holo_blue_dark"
+                app:srcCompat="@drawable/ic_twitter"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                />
+                <ImageView
+                    android:id="@+id/instagram"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toRightOf="@id/twitter"
+                    android:background="@drawable/circle_button"
+                    android:tint="@android:color/holo_blue_dark"
+                    app:srcCompat="@drawable/ic_instagram"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
 

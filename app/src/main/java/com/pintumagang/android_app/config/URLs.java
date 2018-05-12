@@ -1,4 +1,4 @@
-package com.pintumagang.android_app;
+package com.pintumagang.android_app.config;
 
 /**
  * Created by aribambang on 08/03/18.
