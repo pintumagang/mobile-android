@@ -1,5 +1,6 @@
 package com.pintumagang.android_app.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -60,22 +61,16 @@ public class RegisterActivity extends AppCompatActivity {
                 registerUser();
             }
         });
-    }
 
-
-    public void click_link(View view){
-        Intent intent = null;
-        switch (view.getId()){
-
-            case R.id.link_sign_in:
-                intent = new Intent(this, LoginActivity.class);
+        findViewById(R.id.link_sign_in).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
-
-                break;
-
-        }
-        startActivity(intent);
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            }
+        });
     }
+
 
 
     private void registerUser() {

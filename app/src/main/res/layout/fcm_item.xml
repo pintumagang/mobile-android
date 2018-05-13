@@ -63,7 +63,7 @@
                 android:layout_marginLeft="5dp"
 
                 android:layout_alignTop="@+id/textViewTitleNotifikasi"
-                android:src="@drawable/ic_notifications_black_24dp" />
+                android:src="@drawable/ic_notifications_fcm_24dp" />
 
         </RelativeLayout>
 

@@ -1,5 +1,6 @@
 package com.pintumagang.android_app.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -83,6 +84,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 userLogin();
+            }
+        });
+
+        findViewById(R.id.link_sign_up).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
             }
         });
 

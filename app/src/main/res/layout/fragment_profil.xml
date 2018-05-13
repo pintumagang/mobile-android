@@ -276,7 +276,7 @@
                 android:layout_height="24dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/ic_info_black_24dp" />
+                app:srcCompat="@drawable/ic_info_black_24dp" />
 
             <TextView
                 android:layout_width="200dp"
@@ -296,7 +296,7 @@
                 android:layout_height="22dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp" />
 
         </LinearLayout>
 
@@ -305,9 +305,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/buttonTentang"
-            android:paddingTop="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="75dp"
 
             android:background="@color/white"
             android:orientation="horizontal"
@@ -325,7 +323,13 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonLogout"
+            android:paddingBottom="75dp">
 
+        </LinearLayout>
 
     </RelativeLayout>
 
