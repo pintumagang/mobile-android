@@ -59,6 +59,7 @@ public class LowongandetailFragment extends Fragment {
         TextView lokasi = (TextView) rootView.findViewById(R.id.isi_lokasi_lowongan_detail);
         TextView deadline = (TextView) rootView.findViewById(R.id.isi_deadline_lowongan_detail);
         TextView desc = (TextView) rootView.findViewById(R.id.isi_deskripsi_lowongan_detail);
+        TextView jenis = (TextView) rootView.findViewById(R.id.isi_jenis_lowongan_detail);
 
 
 
@@ -85,6 +86,7 @@ public class LowongandetailFragment extends Fragment {
             String deadline_submit = lowonganList.getDeadline_submit();
             id_lowongan = String.valueOf(lowonganList.getId_lowongan());
             id_perusahaan = String.valueOf(lowonganList.getId_perusahaan());
+            String jenis_detail = lowonganList.getJenis();
 
 
             nama_perusahaan.setText(namaPerusahaan);
@@ -92,6 +94,7 @@ public class LowongandetailFragment extends Fragment {
             nama_lowongan.setText(nama);
             deadline.setText(deadline_submit);
             desc.setText(deskripsi);
+            jenis.setText(jenis_detail);
 
         }else {
             System.out.println("tidak ada data");

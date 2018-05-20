@@ -130,7 +130,8 @@ public class FavoritFragment extends Fragment {
                                         lowongan.getString("nama_perusahaan"),
                                         lowongan.getString("logo"),
                                         lowongan.getString("deadline_submit"),
-                                        lowongan.getString("deskripsi")
+                                        lowongan.getString("deskripsi"),
+                                        lowongan.getString("jenis")
                                 ));
                             }
 

@@ -188,7 +188,7 @@ public class LamarFragment extends Fragment {
         final String id_user = String.valueOf(user.getId());
         final String id_mahasiswa = String.valueOf(mahasiswa.getId());
         final String info_tambahan = infotambahan.getText().toString();
-        System.out.println("info: "+infotambahan.getText().toString());
+        final long cvname = System.currentTimeMillis();
         final ProgressDialog loading = ProgressDialog.show(getActivity(), "Mohon tunggu...","Mengirimkan lamaran...",false,false);
 
         //our custom volley request
@@ -240,7 +240,7 @@ public class LamarFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params1 = new HashMap<>();
-                long cvname = System.currentTimeMillis();
+
                 String link_cv = "http://pintumagang.jktserver.com/mobile-android/cv_lamaran/"+cvname+"_"+username + ".pdf";
                 params1.put("id_mhs", id_mahasiswa);
                 params1.put("link_cv", link_cv);
@@ -256,7 +256,6 @@ public class LamarFragment extends Fragment {
             @Override
             protected Map<String, VolleyMultipartRequest.DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
-                long cvname = System.currentTimeMillis();
 
                 try {
                     params.put("cv", new DataPart(cvname +"_"+username + ".pdf", loadFile(file)));
