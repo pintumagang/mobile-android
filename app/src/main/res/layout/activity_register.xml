@@ -23,7 +23,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="540dp"
+            android:layout_height="560dp"
             android:background="@drawable/background2">
 
             <LinearLayout
@@ -279,7 +279,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:layout_marginBottom="15dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="20dp">
             <TextView
                 android:id="@+id/textsignin"
                 android:layout_width="wrap_content"
