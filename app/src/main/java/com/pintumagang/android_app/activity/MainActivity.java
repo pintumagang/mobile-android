@@ -1,6 +1,5 @@
 package com.pintumagang.android_app.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -14,15 +13,16 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-
-
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.pintumagang.android_app.R;
 import com.pintumagang.android_app.config.SharedPrefManager;
 import com.pintumagang.android_app.config.URLs;
-import com.pintumagang.android_app.volley.VolleySingleton;
 import com.pintumagang.android_app.entity.User;
-import com.pintumagang.android_app.fragment.*;
+import com.pintumagang.android_app.fragment.FavoritFragment;
+import com.pintumagang.android_app.fragment.HomeFragment;
+import com.pintumagang.android_app.fragment.NotifikasiFragment;
+import com.pintumagang.android_app.fragment.ProfilFragment;
+import com.pintumagang.android_app.volley.VolleySingleton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,14 +33,12 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private TextView mTextMessage;
-    Activity activity = this;
-    private final HomeFragment homeFragment = new HomeFragment();
+    private HomeFragment homeFragment = HomeFragment.getInstance();
     private final NotifikasiFragment notifikasiFragment = new NotifikasiFragment();
     private final FavoritFragment favoritFragment = new FavoritFragment();
     private final ProfilFragment profilFragment = new ProfilFragment();
-    android.support.v4.app.Fragment  active = homeFragment;
+    private android.support.v4.app.Fragment active = homeFragment;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -51,18 +49,10 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    if (active != homeFragment){
-
                         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.content, homeFragment);
-                        fragmentTransaction.commit();
-                    }
-
-                    else {
-                        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.hide(active).show(homeFragment).commit();
-                    }
-                    active = homeFragment;
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commitAllowingStateLoss();
 
                     break;
                 case R.id.navigation_notifikasi:
@@ -73,10 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
                     }
 
-                    else {
-                        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.hide(active).show(notifikasiFragment).commit();
-                    }
                     active = notifikasiFragment;
                     break;
                 case R.id.navigation_favorit:
@@ -87,10 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
                     }
 
-                    else {
-                        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.hide(active).show(favoritFragment).commit();
-                    }
 
                     active = favoritFragment;
                     break;
@@ -101,11 +83,6 @@ public class MainActivity extends AppCompatActivity {
                         fragmentProfilTransaction.replace(R.id.content, profilFragment);
                         fragmentProfilTransaction.commit();
 
-                    }
-
-                    else {
-                        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.hide(active).show(profilFragment).commit();
                     }
 
                     active = profilFragment;

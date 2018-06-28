@@ -48,11 +48,19 @@ public class HomeFragment extends Fragment {
     private SliderView sliderView;
     private LinearLayout mLinearLayout;
     private RelativeLayout prodi_if;
+    private static HomeFragment homeFragment;
 
     ExpandableHeightGridView gridView;
 
     public HomeFragment() {
         // Required empty public constructor
+    }
+
+    public static HomeFragment getInstance() {
+        if(homeFragment == null)
+            homeFragment = new HomeFragment();
+
+        return homeFragment;
     }
 
 
