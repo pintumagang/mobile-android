@@ -18,9 +18,8 @@ public class Lowongan extends ArrayList<Parcelable> {
     private String logo;
     private String deadline_submit;
     private String deskripsi;
-    private String jenis;
 
-    public Lowongan(int id_lowongan, String nama_lowongan, int id_perusahaan, String waktu_input, String lokasi, String nama_perusahaan, String logo,String deadline_submit,String deskripsi,String jenis) {
+    public Lowongan(int id_lowongan, String nama_lowongan, int id_perusahaan, String waktu_input, String lokasi, String nama_perusahaan, String logo,String deadline_submit,String deskripsi) {
         this.id_lowongan = id_lowongan;
         this.nama_lowongan = nama_lowongan;
         this.id_perusahaan = id_perusahaan;
@@ -30,7 +29,6 @@ public class Lowongan extends ArrayList<Parcelable> {
         this.logo = logo;
         this.deadline_submit = deadline_submit;
         this.deskripsi = deskripsi;
-        this.jenis = jenis;
     }
 
     public int getId_lowongan() {
@@ -67,9 +65,5 @@ public class Lowongan extends ArrayList<Parcelable> {
 
     public String getDeskripsi() {
         return deskripsi;
-    }
-
-    public String getJenis() {
-        return jenis;
     }
 }

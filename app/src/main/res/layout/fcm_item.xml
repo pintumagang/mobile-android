@@ -26,7 +26,7 @@
                 android:maxLines="2"
                 android:text="Title"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#000000"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 

@@ -90,30 +90,10 @@
             android:text="Isi Nama Lowongan" />
 
         <TextView
-            android:id="@+id/view_jenis_lowongan_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/isi_nama_lowongan"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="10dp"
-            android:text="Jenis Lowongan"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/isi_jenis_lowongan_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/view_jenis_lowongan_detail"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="jenis"/>
-
-        <TextView
             android:id="@+id/view_lokasi_lowongan_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/isi_jenis_lowongan_detail"
+            android:layout_below="@+id/isi_nama_lowongan"
             android:layout_marginTop="10dp"
             android:paddingLeft="10dp"
             android:text="Lokasi Lowongan"
@@ -213,7 +193,7 @@
             android:layout_below="@+id/btn"
             android:layout_marginTop="30dp"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3679403662348605/5386502676">
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
 
         </com.google.android.gms.ads.AdView>
 

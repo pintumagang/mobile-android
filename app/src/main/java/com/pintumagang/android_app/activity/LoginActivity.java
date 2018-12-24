@@ -1,7 +1,6 @@
 package com.pintumagang.android_app.activity;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -103,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
         //first getting the values
         final String username = editTextUsername.getText().toString();
         final String password = editTextPassword.getText().toString();
-        final ProgressDialog loading = ProgressDialog.show(this, "","Loading ...",false,false);
+
         //validating inputs
         if (TextUtils.isEmpty(username)) {
             editTextUsername.setError("Masukkan username anda");
@@ -122,7 +121,6 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        loading.dismiss();
                       //  progressBar.setVisibility(View.GONE);
                       System.out.println("aaaaaa "+response);
 
@@ -166,7 +164,6 @@ public class LoginActivity extends AppCompatActivity {
                                 finish();
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             } else {
-
                                 Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
@@ -188,6 +185,7 @@ public class LoginActivity extends AppCompatActivity {
                 return params;
             }
         };
+
         VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
     }
 

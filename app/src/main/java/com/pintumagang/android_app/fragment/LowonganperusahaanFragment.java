@@ -147,8 +147,7 @@ public class LowonganperusahaanFragment extends Fragment {
                                         lowongan.getString("nama_perusahaan"),
                                         lowongan.getString("logo"),
                                         lowongan.getString("deadline_submit"),
-                                        lowongan.getString("deskripsi"),
-                                        lowongan.getString("jenis")
+                                        lowongan.getString("deskripsi")
                                 ));
                             }
 
